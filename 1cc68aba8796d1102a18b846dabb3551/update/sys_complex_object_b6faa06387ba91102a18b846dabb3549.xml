@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_complex_object">
+    <sys_complex_object action="INSERT_OR_UPDATE">
+        <label/>
+        <name>FDf2faa0636bba9110d24d7b6517cea649</name>
+        <namespace>FlowDesigner</namespace>
+        <scope_name>1cc68aba8796d1102a18b846dabb3551</scope_name>
+        <serialized_content>{"FlowDesigner:FDf2faa0636bba9110d24d7b6517cea649":{"PLANT":"String","PLANT.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Plant\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"0\",\"uiUniqueId\":\"5fab572e-d9f9-4b2f-aa51-2cfc48598fa5\"}"},"MOVE_TYPE":"String","MOVE_TYPE.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Movement type\",\"mandatory\":\"false\",\"order\":\"4\",\"max_length\":\"0\",\"uiUniqueId\":\"4a9b26ee-f96a-44b2-832d-96c67ce80e6b\"}"},"PO_NUMBER":"String","PO_NUMBER.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Purchase order\",\"mandatory\":\"false\",\"order\":\"7\",\"max_length\":\"0\",\"uiUniqueId\":\"68841311-f6ca-4fd6-bdde-24203147b289\"}"},"ENTRY_QNT":"Number","ENTRY_QNT.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Number\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"number\",\"default_value\":\"\",\"label\":\"Qty in unit of entry\",\"mandatory\":\"false\",\"order\":\"6\",\"max_length\":\"0\",\"uiUniqueId\":\"2526e5ab-b9e5-4fa1-a690-ad2a06a615ce\"}"},"MVT_IND":"String","MVT_IND.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Movement indicator\",\"mandatory\":\"false\",\"order\":\"9\",\"max_length\":\"0\",\"uiUniqueId\":\"ebdccd2e-40ce-4d37-a78d-abf01847ae26\"}"},"VENDOR":"String","VENDOR.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Vendor\",\"mandatory\":\"false\",\"order\":\"5\",\"max_length\":\"0\",\"uiUniqueId\":\"e634d02b-61ef-46b7-94bd-22a8d28355d2\"}"},"PO_ITEM":"String","PO_ITEM.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Item\",\"mandatory\":\"false\",\"order\":\"8\",\"max_length\":\"0\",\"uiUniqueId\":\"98f4b7ce-6391-479a-abfe-6ee3cb1f9f31\"}"},"STGE_LOC":"String","STGE_LOC.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Storage Location\",\"mandatory\":\"false\",\"order\":\"3\",\"max_length\":\"0\",\"uiUniqueId\":\"39298dc6-05f9-4ed8-8339-c81956407f66\"}"},"MATERIAL":"String","MATERIAL.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Material\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\",\"uiUniqueId\":\"7dd591c8-e490-4672-b0b8-7cc39094d867\"}"}},"FlowDesigner:FDf2faa0636bba9110d24d7b6517cea649.$type_facets":{"SimpleMapFacet":"{\"sourceId\":\"65a7310c-6fa0-48bb-8547-c7c4a3bc4afd\",\"default_value\":\"\",\"label\":\"Goods Receipt Line\",\"mandatory\":\"false\",\"uiUniqueId\":\"22ce2a77-5982-49db-aaa3-b0b1ddc38eb2\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FDf2faa0636bba9110d24d7b6517cea649\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"sourceType\":\"step\",\"sourceUiUniqueId\":\"396ba299-5a62-4885-b97e-c6c7ddfe48e7\",\"hint\":\"\",\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}}</serialized_content>
+        <sys_class_name>sys_complex_object</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-11-02 08:53:24</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>b6faa06387ba91102a18b846dabb3549</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>FDf2faa0636bba9110d24d7b6517cea649</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name>sys_complex_object_b6faa06387ba91102a18b846dabb3549</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-15 11:31:23</sys_updated_on>
+        <type>complex_object_schema</type>
+    </sys_complex_object>
+</record_update>

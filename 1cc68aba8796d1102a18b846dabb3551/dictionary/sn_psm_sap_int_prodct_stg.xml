@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="6f239679c355e11068187addd40131f2" extends="sys_import_set_row" label="Materials" name="sn_psm_sap_int_prodct_stg" type="collection">
+        <element label="Assignment Unit of Measurement" max_length="50" name="assignment_uom" type="string"/>
+        <element label="Base quantity" max_length="50" name="base_quantity" type="string"/>
+        <element label="Base unit of measure" max_length="50" name="base_unit_of_measure" type="string"/>
+        <element label="Base unit of measure description" max_length="50" name="base_unit_of_measure_desc" type="string"/>
+        <element label="Basic material" max_length="50" name="basic_material" type="string"/>
+        <element label="Blocked stock" max_length="50" name="blocked_stock" type="string"/>
+        <element label="Blocked stock returns" max_length="50" name="blocked_stock_returns" type="string"/>
+        <element label="Client" max_length="50" name="client" type="string"/>
+        <element label="Container requirements" max_length="50" name="container_requirements" type="string"/>
+        <element label="Conversion group oil natural gas" max_length="50" name="conversion_group_oil_natural_gas" type="string"/>
+        <element label="Created on" max_length="50" name="created_on" type="string"/>
+        <element label="Current period posting period" max_length="50" name="current_period_posting_period" type="string"/>
+        <element label="Current planned price" max_length="50" name="current_planned_price" type="string"/>
+        <element label="Dangerous goods indicator profile" max_length="50" name="dangerous_goods_indicator_profile" type="string"/>
+        <element label="Dangerous goods packaging status" max_length="50" name="dangerous_goods_packaging_status" type="string"/>
+        <element label="Data division marc" max_length="50" name="data_division_marc" type="string"/>
+        <element label="Data division marc division 1" max_length="50" name="data_division_marc_division_1" type="string"/>
+        <element label="Data division mard" max_length="50" name="data_division_mard" type="string"/>
+        <element label="Date as of which the price is valid" max_length="50" name="date_as_of_which_the_price_is_valid" type="string"/>
+        <element label="Date from which future planned price 1 is valid" max_length="50" name="date_from_which_future_planned_price_1_is_valid" type="string"/>
+        <element label="Date from which future planned price 2 is valid" max_length="50" name="date_from_which_future_planned_price_2_is_valid" type="string"/>
+        <element label="Date from which future planned price 3 is valid" max_length="50" name="date_from_which_future_planned_price_3_is_valid" type="string"/>
+        <element label="Date from which the plant specific material status is valid" max_length="50" name="date_from_which_the_plant_specific_material_status_is_valid" type="string"/>
+        <element label="Date of the last price change" max_length="50" name="date_of_the_last_price_change" type="string"/>
+        <element label="Default storage location for external procurement" max_length="50" name="default_storage_location_for_external_procurement" type="string"/>
+        <element label="Division" max_length="50" name="division" type="string"/>
+        <element label="Erp source" max_length="50" name="erp_source" type="string"/>
+        <element label="Fiscal year of current period" max_length="50" name="fiscal_year_of_current_period" type="string"/>
+        <element label="Future planned price" max_length="50" name="future_planned_price" type="string"/>
+        <element label="Future planned price 1" max_length="50" name="future_planned_price_1" type="string"/>
+        <element label="Future planned price 2" max_length="50" name="future_planned_price_2" type="string"/>
+        <element label="Future planned price 3" max_length="50" name="future_planned_price_3" type="string"/>
+        <element label="Future price" max_length="50" name="future_price" type="string"/>
+        <element label="Gross weight" max_length="50" name="gross_weight" type="string"/>
+        <element label="Handling unit type" max_length="50" name="handling_unit_type" type="string"/>
+        <element label="Hazardous material number" max_length="50" name="hazardous_material_number" type="string"/>
+        <element label="Height" max_length="50" name="height" type="string"/>
+        <element label="Industry standard description such as ansi or ISO" max_length="50" name="industry_standard_description_such_as_ansi_or_iso" type="string"/>
+        <element label="Issue storage location" max_length="50" name="issue_storage_location" type="string"/>
+        <element label="Language" max_length="50" name="language" type="string"/>
+        <element label="Length" max_length="50" name="length" type="string"/>
+        <element label="Loading units" max_length="50" name="loading_units" type="string"/>
+        <element label="Load without packaging material Vehicle Space Optimization" max_length="50" name="load_without_packaging_material_vso" type="string"/>
+        <element label="Maintenance status" max_length="50" name="maintenance_status" type="string"/>
+        <element label="Manufacturer number" max_length="50" name="manufacturer_number" type="string"/>
+        <element label="Material category" max_length="50" name="material_category" type="string"/>
+        <element label="Material category desc" max_length="50" name="material_category_desc" type="string"/>
+        <element label="Material description" max_length="50" name="material_description" type="string"/>
+        <element label="Material freight group" max_length="50" name="material_freight_group" type="string"/>
+        <element label="Material group" max_length="50" name="material_group" type="string"/>
+        <element label="Material group desc" max_length="50" name="material_group_desc" type="string"/>
+        <element label="Material is costed with quantity structure" max_length="50" name="material_is_costed_with_quantity_structure" type="string"/>
+        <element label="Material is locked" max_length="50" name="material_is_locked" type="string"/>
+        <element label="Material Material Requirements Planning Profile" max_length="50" name="material_mrp_profile" type="string"/>
+        <element label="Material number" max_length="50" name="material_number" type="string"/>
+        <element label="Material type" max_length="50" name="material_type" type="string"/>
+        <element label="Material type desc" max_length="50" name="material_type_desc" type="string"/>
+        <element label="Mrp controller" max_length="50" name="mrp_controller" type="string"/>
+        <element label="Material Requirements Planning Group" max_length="50" name="mrp_group" type="string"/>
+        <element label="Material Requirements Planning Type" max_length="50" name="mrp_type" type="string"/>
+        <element label="Name of person who created the object" max_length="50" name="name_of_person_who_created_the_object" type="string"/>
+        <element label="Net contents" max_length="50" name="net_contents" type="string"/>
+        <element label="Net weight" max_length="50" name="net_weight" type="string"/>
+        <element label="Packaging code" max_length="50" name="packaging_code" type="string"/>
+        <element label="Packaging material type" max_length="50" name="packaging_material_type" type="string"/>
+        <element label="Physical inventory blocking indicator" max_length="50" name="physical_inventory_blocking_indicator" type="string"/>
+        <element label="Physical inventory indicator for restricted use stock" max_length="50" name="physical_inventory_indicator_for_restricted_use_stock" type="string"/>
+        <element label="Physical inventory indicator for ware house stock in current year" max_length="50" name="physical_inventory_indicator_for_whse_stock_in_current_year" type="string"/>
+        <element label="Phys Inventory ind F Stock in qual Insp In current year" max_length="50" name="phys_inventory_ind_f_stock_in_qual_insp_in_current_year" type="string"/>
+        <element label="Plant field" max_length="50" name="plant_field" type="string"/>
+        <element label="Plant specific material status" max_length="50" name="plant_specific_material_status" type="string"/>
+        <element label="Previous price" max_length="50" name="previous_price" type="string"/>
+        <element label="Price control indicator" max_length="50" name="price_control_indicator" type="string"/>
+        <element label="Price unit" max_length="50" name="price_unit" type="string"/>
+        <element label="Price unit of previous period" max_length="50" name="price_unit_of_previous_period" type="string"/>
+        <element label="Procurement rule" max_length="50" name="procurement_rule" type="string"/>
+        <element label="Procurement type" max_length="50" name="procurement_type" type="string"/>
+        <element label="Produced in house" max_length="50" name="produced_in_house" type="string"/>
+        <element label="Production unit" max_length="50" name="production_unit" type="string"/>
+        <element label="Product category" max_length="50" name="product_category" type="string"/>
+        <element label="Product hierarchy" max_length="50" name="product_hierarchy" type="string"/>
+        <element label="Profit center" max_length="50" name="profit_center" type="string"/>
+        <element label="Purchase order unit of measure" max_length="50" name="purchase_order_unit_of_measure" type="string"/>
+        <element label="Purchasing group" max_length="50" name="purchasing_group" type="string"/>
+        <element label="Purchasing value key" max_length="50" name="purchasing_value_key" type="string"/>
+        <element label="Relevant for hazardous substances" max_length="50" name="relevant_for_hazardous_substances" type="string"/>
+        <element label="Return code" max_length="50" name="return_code" type="string"/>
+        <element label="Return to logistics level" max_length="50" name="return_to_logistics_level" type="string"/>
+        <element label="Serial number profile" max_length="50" name="serial_number_profile" type="string"/>
+        <element label="Size dimensions" max_length="50" name="size_dimensions" type="string"/>
+        <element label="Source of supply" max_length="50" name="source_of_supply" type="string"/>
+        <element label="Special procurement type at storage location level" max_length="50" name="special_procurement_type_at_storage_location_level" type="string"/>
+        <element label="Standard price" max_length="50" name="standard_price" type="string"/>
+        <element label="Standard price in the previous period" max_length="50" name="standard_price_in_the_previous_period" type="string"/>
+        <element label="Stock in quality inspection" max_length="50" name="stock_in_quality_inspection" type="string"/>
+        <element label="Stock in transfer plant to plant" max_length="50" name="stock_in_transfer_plant_to_plant" type="string"/>
+        <element label="Stock in transit" max_length="50" name="stock_in_transit" type="string"/>
+        <element label="Stock transfer sales value plant to plant for valuation order material" max_length="50" name="stock_transfer_sales_value_plant_to_plant_for_vo_material" type="string"/>
+        <element label="Storage bin" max_length="50" name="storage_bin" type="string"/>
+        <element label="Storage conditions" max_length="50" name="storage_conditions" type="string"/>
+        <element label="Storage location" max_length="50" name="storage_location" type="string"/>
+        <element label="Storage Location Material Requirements Planning Indicator" max_length="50" name="storage_location_mrp_indicator" type="string"/>
+        <element label="Storage percentage" max_length="50" name="storage_percentage" type="string"/>
+        <element label="Total stock of all restricted batches" max_length="50" name="total_stock_of_all_restricted_batches" type="string"/>
+        <element label="Total valuated stock" max_length="50" name="total_valuated_stock" type="string"/>
+        <element label="Total valuated stock in previous period" max_length="50" name="total_valuated_stock_in_previous_period" type="string"/>
+        <element label="Unit of dimension for length width height" max_length="50" name="unit_of_dimension_for_length_width_height" type="string"/>
+        <element label="Unit of issue" max_length="50" name="unit_of_issue" type="string"/>
+        <element label="Unit of mearsure group oil natural gas" max_length="50" name="unit_of_mearsure_group_oil_natural_gas" type="string"/>
+        <element label="Unit of measure for maximum packing length width height" max_length="50" name="unit_of_measure_for_maximum_packing_length_width_height" type="string"/>
+        <element label="Utc time stamp in short form yyyymmddhhmmss" max_length="50" name="utc_time_stamp_in_short_form_yyyymmddhhmmss" type="string"/>
+        <element label="Valuated unrestricted use stock" max_length="50" name="valuated_unrestricted_use_stock" type="string"/>
+        <element label="Valuation area" max_length="50" name="valuation_area" type="string"/>
+        <element label="Valuation category" max_length="50" name="valuation_category" type="string"/>
+        <element label="Valuation type" max_length="50" name="valuation_type" type="string"/>
+        <element label="Value of total valuated stock" max_length="50" name="value_of_total_valuated_stock" type="string"/>
+        <element label="Value of total valuated stock in previous period" max_length="50" name="value_of_total_valuated_stock_in_previous_period" type="string"/>
+        <element label="Volume" max_length="50" name="volume" type="string"/>
+        <element label="Volume unit" max_length="50" name="volume_unit" type="string"/>
+        <element label="Weight unit" max_length="50" name="weight_unit" type="string"/>
+        <element label="Width" max_length="50" name="width" type="string"/>
+    </element>
+</database>

@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>sn_psm_sap_int.PsmSapUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Utility function to :&#13;
+1. Fetch all currency fields from a record.&#13;
+2.Check if mandatory fields are empty.&#13;
+3. Execute an action synchrnously.&#13;
+4. Generate SAP standard PO payload.&#13;
+5. Generate SAP blanket PO payload.&#13;
+6. Divide PO lines based on costcenter allocations.&#13;
+7. Divite GR lines based on costcenter allocations.</description>
+        <name>PsmSapUtils</name>
+        <script><![CDATA[var PsmSapUtils = Class.create();
+PsmSapUtils.prototype = {
+    initialize: function() {},
+    getCurrencyFields: function(tablename, sysId) {
+        var rec = new GlideRecord(tablename);
+        rec.get(sysId);
+        var fields = rec.getElements();
+        var currencyFields = {};
+        fields.forEach(function(element) {
+            var type = element.getED().getInternalType();
+            if (type == "currency2") {
+                var sys_id = element.toString();
+                if (sys_id) {
+                    var obj = {};
+                    var grec = element.getRefRecord();
+                    obj['amount'] = grec.reference_amount.toString();
+                    obj['code'] = grec.reference_currency.toString();
+                    currencyFields[element.getName()] = obj;
+                }
+            }
+        });
+        return currencyFields;
+    },
+    checkMandatoryFields: function(mandatoryFieldsList) {
+        var emptyMandatoryFieldsList = [];
+        Object.keys(mandatoryFieldsList).forEach(function(key) {
+            if (gs.nil(mandatoryFieldsList[key])) {
+                emptyMandatoryFieldsList.push(key);
+            }
+        });
+        emptyMandatoryFieldsList = emptyMandatoryFieldsList.join(", ");
+        return emptyMandatoryFieldsList;
+    },
+    convertDateToSAPFormat: function(dte) {
+        dte = dte.split('-');
+        var sapDate = '';
+        for (k = 0; k < dte.length; k++) {
+            sapDate = sapDate + dte[k].toString();
+        }
+        return sapDate.toString();
+    },
+    callSubflowPO: function() {
+        gs.addInfoMessage("Test Value: ");
+        var sysIdList = this.getParameter('sysparm_sysid_list').toString();
+        var tblName = this.getParameter('sysparm_table_name');
+
+        try {
+            gs.info("Test Value: " + sysIdList);
+            var inputs = {};
+            inputs['po_sysid'] = sysIdList; // String 
+            inputs['table_name'] = tblName; // String 
+            sn_fd.FlowAPI.getRunner().subflow('sn_psm_sap_int.submit_pos_test_test').inBackground().withInputs(inputs).run();
+            return "Ran Successfully";
+        } catch (ex) {
+            gs.info("Test Value: " + sysIdList);
+            var message = ex.getMessage();
+            gs.error(message);
+        }
+    },
+    getUtilityActionNames: function(erp) {
+        switch (erp) {
+            case 'ecc':
+                return {
+                    GenLinesActionName: 'sn_psm_sap_int.generate_ecc_po_line_object',
+                        GenAccountActionName: 'sn_psm_sap_int.generate_ecc_po_accounts_object',
+                        GenScheduleActionName: 'sn_psm_sap_int.generate_ecc_po_schedule_object',
+                        GenAddressActionName: 'sn_psm_sap_int.generate_ecc_po_address_object',
+                        GenLimitsActionName: 'sn_psm_sap_int.generate_ecc_po_limits_object',
+                        GenServicesAcrionName: 'sn_psm_sap_int.generate_ecc_po_services_object'
+                };
+
+            case 'hana':
+                return {
+                    GenLinesActionName: 'sn_psm_sap_int.generate_hana_po_line_object',
+                        GenAccountActionName: 'sn_psm_sap_int.generate_hana_po_accounts_object',
+                        GenScheduleActionName: 'sn_psm_sap_int.generate_hana_po_schedule_object',
+                        GenAddressActionName: 'sn_psm_sap_int.generate_hana_po_address_object',
+                        GenLimitsActionName: 'sn_psm_sap_int.generate_hana_po_limits_object',
+                        GenServicesAcrionName: 'sn_psm_sap_int.generate_hana_po_services_object'
+                };
+        }
+    },
+    checkPadding: function(stringInteger, stringlength, addAsSuffix) {
+        var fieldValue = stringInteger.toString();
+        if (addAsSuffix) {
+            while (fieldValue.length < stringlength)
+                fieldValue = fieldValue + "0";
+            return fieldValue;
+        } else {
+            while (fieldValue.length < stringlength)
+                fieldValue = "0" + fieldValue;
+            return fieldValue;
+        }
+    },
+
+    getGlideRecords: function(tableName, queryParams, orderByParams) {
+        try {
+            var glideRec = new GlideRecord(tableName);
+            if (!(gs.nil(queryParams))) {
+                Object.keys(queryParams).forEach(function(key) {
+                    glideRec.addQuery(key.toString(), queryParams[key].toString());
+                });
+            }
+            if (!(gs.nil(orderByParams))) {
+                orderByParams.forEach(function(param) {
+                    glideRec.orderBy(param.toString());
+                });
+            }
+            glideRec.query();
+            return glideRec;
+        } catch (e) {
+            throw new Error(er.getMessage());
+        }
+    },
+    executeAction: function(actionName, actionInputs) {
+        try {
+            var result = sn_fd.FlowAPI.getRunner().action(actionName).inForeground().withInputs(actionInputs).run();
+            var outputs = result.getOutputs();
+            if (!outputs['__action_status__']['code']) {
+                return outputs;
+            } else {
+                var contextID = result.getContextId();
+                throw new Error(outputs['__action_status__']['message']);
+            }
+        } catch (er) {
+            throw new Error(er.getMessage() + 'in Action :' + actionName);
+        }
+    },
+    dividePOLinesBasedOnCostCenter: function(polRec, polObj) {
+        if (polRec.purchased_quantity.toString() == '0') {
+            throw new Error('Purchase order line qauntity cannot be 0');
+        }
+        var quantity = polRec.purchased_quantity;
+        var polines = [];
+        var grec = new GlideRecord('sn_shop_cost_allocation');
+        grec.addQuery('order_line.sys_id', polRec.sys_id.toString());
+        grec.orderBy('cost_center');
+        grec.query();
+        if (grec.hasNext()) {
+            while (grec.next()) {
+                var costCenter = grec.cost_center.code;
+                var allocPercentage = grec.allocation_percentage;
+                var tempPOL = polObj;
+                tempPOL['QUANTITY'] = (Math.round((quantity * (allocPercentage / 100)) * 100) / 100).toFixed(3);
+                tempPOL['temp_costcenter'] = isNaN(costCenter.toString()) ? costCenter.toString() : this.checkPadding(costCenter.toString(), 10);
+                polines.push(JSON.parse(JSON.stringify(tempPOL)));
+            }
+        } else {
+            polines.push(polObj);
+        }
+        return polines;
+    },
+    divideGRLinesBasedOnCostCenter: function(GrRec, GrObj) {
+        if (GrObj['ENTRY_QNT'].toString.replace(/\D/g, '') == '0') {
+            throw new Error("Goods receipt quantity cannot be empty");
+        }
+        var GrLines = [];
+        var PolSysid = GrRec.purchase_order_line;
+        var dividedQuantities = this.calculateQuantityBasedOnCostCenters(PolSysid, GrObj['ENTRY_QNT'].toString().replace(/\D/g, ''));
+        var PoItemNums = GrObj['PO_ITEM'].split(',');
+        if (PoItemNums.length == dividedQuantities.length) {
+            for (var i = 0; i < dividedQuantities.length; i++) {
+                var tempGRLine = JSON.parse(JSON.stringify(GrObj));
+                tempGRLine['PO_ITEM'] = PoItemNums[i];
+                tempGRLine['ENTRY_QNT'] = dividedQuantities[i].QUANTITY;
+                GrLines.push(tempGRLine);
+            }
+            return GrLines;
+        }
+    },
+    calculateQuantityBasedOnCostCenters: function(orderLine_sysid, totalQuantity) {
+        var returnArray = [];
+        var grec = new GlideRecord('sn_shop_cost_allocation');
+        grec.addQuery('order_line.sys_id', orderLine_sysid.toString());
+        grec.orderBy('sys_created_on');
+        grec.query();
+        while (grec.next()) {
+            var tempObj = {};
+            tempObj['costCenter'] = grec.cost_center.code;
+            var allocPercentage = grec.allocation_percentage;
+            tempObj['QUANTITY'] = (totalQuantity * (allocPercentage / 100)).toFixed(3);
+            returnArray.push(tempObj);
+        }
+        return returnArray;
+    },
+    getPlantID: function(grec) {
+        var plantId;
+        var DeliveryLoc = grec.request_line.location;
+        if (DeliveryLoc.office) {
+            var ERPmapRec = new GlideRecord('sn_sap_data_int_erp_plant_address_mapping');
+            ERPmapRec.addQuery('location.sys_id', DeliveryLoc.office.sys_id.toString());
+            ERPmapRec.query();
+            if (ERPmapRec.hasNext()) {
+                ERPmapRec.next();
+                plantId = ERPmapRec.erp_location_id;
+            } else {
+                throw new Error("No ERP Plant Address Mapping record found for office location");
+            }
+        } else {
+            var ricipientLE = grec.purchase_order.legal_entity;
+            if (ricipientLE) {
+                var ERPmapRec = new GlideRecord('sn_sap_data_int_erp_plant_address_mapping');
+                ERPmapRec.addQuery('legal_entity.sys_id', ricipientLE.sys_id.toString());
+                ERPmapRec.addQuery('default_address', 'true');
+                ERPmapRec.query();
+                if (ERPmapRec.hasNext()) {
+                    ERPmapRec.next();
+                    plantId = ERPmapRec.erp_location_id;
+                } else {
+                    var ERPmapRecord = new GlideRecord('sn_sap_data_int_erp_plant_address_mapping');
+                    ERPmapRecord.addQuery('legal_entity.sys_id', ricipientLE.sys_id.toString());
+                    ERPmapRecord.query();
+                    if (ERPmapRecord.hasNext()) {
+                        ERPmapRecord.next();
+                        plantId = ERPmapRecord.erp_location_id;
+                    } else {
+                        throw new Error("No ERP Plant Address Mapping record found for selected legal entity");
+                    }
+                }
+            } else {
+                throw new Error("No Legal Entity is Selected in Purchase Order");
+            }
+        }
+        return plantId.toString();
+    },
+    generatePOServiceEntries: function(actionName, polRec, POItem, packageNum, serialNumber, lineNumber) {
+        var POServiceObj = this.executeAction(actionName, {
+            po_services: polRec
+        }).po_services;
+
+        var POServices = [];
+        var serviceAccessObj = {};
+        var line1 = {};
+        line1['PCKG_NO'] = this.checkPadding(packageNum, 10);
+        packageNum++;
+        line1['LINE_NO'] = this.checkPadding(lineNumber, 10);
+        lineNumber++;
+        line1['OUTL_IND'] = 'X';
+        line1['SUBPCKG_NO'] = this.checkPadding(packageNum, 10);
+        POServices.push(line1);
+
+        POServiceObj['PCKG_NO'] = line1['SUBPCKG_NO'];
+        POServiceObj['LINE_NO'] = this.checkPadding(lineNumber, 10);
+        POServiceObj['EXT_LINE'] = POItem['PO_ITEM'];
+        POServiceObj['QUANTITY'] = POItem['QUANTITY'];
+        POServices.push(POServiceObj);
+
+        //serviceAccessObj['PO_ITEM'] = POItem['PO_ITEM'];
+        serviceAccessObj['SERIAL_NO'] = this.checkPadding(serialNumber, 2);
+        serviceAccessObj['SERNO_LINE'] = this.checkPadding(serialNumber, 2);
+        serviceAccessObj['PCKG_NO'] = POServiceObj['PCKG_NO'];
+        serviceAccessObj['LINE_NO'] = POServiceObj['LINE_NO'];
+
+        packageNum++;
+        lineNumber++;
+        serialNumber++;
+
+        return {
+            POservicesObjs: POServices,
+            serviceAccessObj: serviceAccessObj,
+            packageNumber: packageNum,
+            serialNumber: serialNumber,
+            ServiceLineNum: lineNumber
+        };
+    },
+    generateStandardPOPaylaod: function(psm_po_sysId, itemInterval, erp, isUpdatePO) {
+        var updateLine = (gs.nil(isUpdatePO) || isUpdatePO == false) ? false : true;
+
+        if (gs.nil(itemInterval))
+            throw new Error('Function Parameter : ItemInterval cannot be blank');
+
+        if (gs.nil(psm_po_sysId))
+            throw new Error('Function Parameter : PO sysId cannot be blank');
+
+        if (gs.nil(erp))
+            throw new Error('Function Parameter : ERP cannot be blank');
+
+        var UtilityActionNames = this.getUtilityActionNames(erp);
+
+        var poLines = [];
+        var poAccounts = [];
+        var poSchedules = [];
+        var poAddresses = [];
+        var poServices = [];
+        var poServiceAccessValues = [];
+        var poItemNumber = itemInterval;
+        var packageNumber = 1;
+        var serialNumber = 1;
+        var ServiceLineNum = 1;
+        var grec;
+        grec = this.getGlideRecords('sn_shop_purchase_order_line', {
+            purchase_order: psm_po_sysId
+        }, ['number']);
+        while (grec.next()) {
+            var ERPLineNumber = '';
+            if (grec.product_type == 'good') {
+                var polObj = this.executeAction(UtilityActionNames['GenLinesActionName'], {
+                    po_items: grec
+                }).purchase_order_item;
+                var costCenter_POlines = this.dividePOLinesBasedOnCostCenter(grec, polObj);
+                costCenter_POlines.forEach(function(po_item) {
+                    po_item['PO_ITEM'] = new sn_psm_sap_int.PsmSapUtils().checkPadding(poItemNumber, 5);
+                    ERPLineNumber += po_item['PO_ITEM'] + ',';
+                    var poAccountObj = new sn_psm_sap_int.PsmSapUtils().executeAction(UtilityActionNames['GenAccountActionName'], {
+                        po_accounts: grec,
+                        po_item_number: po_item['PO_ITEM'],
+                    }).po_accounts;
+
+                    if (grec.acc_assgn_category == 'A') {
+                        var assetRec = new sn_psm_sap_int.PsmSapUtils().getGlideRecords('sn_fin_fixed_asset', {
+                            order_line: grec.sys_id
+                        });
+                        assetRec.next();
+                        poAccountObj['ASSET_NO'] = assetRec.erp_asset_number.toString();
+                    }
+
+                    poAccountObj['COSTCENTER'] = po_item['temp_costcenter'];
+                    poAccountObj['QUANTITY'] = po_item['QUANTITY'];
+                    delete po_item['temp_costcenter'];
+                    poLines.push(po_item);
+                    poAccounts.push(poAccountObj);
+                    poSchedules.push(new sn_psm_sap_int.PsmSapUtils().executeAction(UtilityActionNames['GenScheduleActionName'], {
+                        po_schedule: grec,
+                        po_item_number: po_item['PO_ITEM']
+                    }).po_schedule);
+                    if (!(grec.request_line.location.office))
+                        poAddresses.push(new sn_psm_sap_int.PsmSapUtils().executeAction(UtilityActionNames['GenAddressActionName'], {
+                            po_address: grec,
+                            po_item_number: po_item['PO_ITEM']
+                        }).po_address);
+                    poItemNumber = parseInt(poItemNumber, 10) + parseInt(itemInterval, 10);
+
+                });
+            } else if (grec.product_type == 'service' || grec.product_type == 'handling_fee') {
+
+                var servicePOLObj = this.executeAction(UtilityActionNames['GenLinesActionName'], {
+                    po_items: grec
+                }).purchase_order_item;
+                var costCenter_service_POlines = this.dividePOLinesBasedOnCostCenter(grec, servicePOLObj);
+                costCenter_service_POlines.forEach(function(po_item) {
+                    po_item['PO_ITEM'] = new sn_psm_sap_int.PsmSapUtils().checkPadding(poItemNumber, 5);
+                    po_item['PCKG_NO'] = new sn_psm_sap_int.PsmSapUtils().checkPadding(packageNumber, 10);
+                    ERPLineNumber += po_item['PO_ITEM'] + ',';
+
+                    var AccountInputs = {};
+                    AccountInputs['po_accounts'] = grec;
+                    AccountInputs['po_item_number'] = po_item['PO_ITEM'];
+                    AccountInputs['serial_number'] = new sn_psm_sap_int.PsmSapUtils().checkPadding(serialNumber, 2);
+
+                    var poAccountObj = new sn_psm_sap_int.PsmSapUtils().executeAction(UtilityActionNames['GenAccountActionName'], AccountInputs).po_accounts;
+                    poAccountObj['COSTCENTER'] = po_item['temp_costcenter'];
+                    delete po_item['temp_costcenter'];
+                    poLines.push(po_item);
+                    poAccounts.push(poAccountObj);
+
+                    poSchedules.push(new sn_psm_sap_int.PsmSapUtils().executeAction(UtilityActionNames['GenScheduleActionName'], {
+                        po_schedule: grec,
+                        po_item_number: po_item['PO_ITEM']
+                    }).po_schedule);
+
+                    if (!(grec.request_line.location.office))
+                        poAddresses.push(new sn_psm_sap_int.PsmSapUtils().executeAction(UtilityActionNames['GenAddressActionName'], {
+                            po_address: grec,
+                            po_item_number: po_item['PO_ITEM']
+                        }).po_address);
+
+                    var serviceEntries = new sn_psm_sap_int.PsmSapUtils().generatePOServiceEntries(UtilityActionNames['GenServicesAcrionName'], grec, po_item, packageNumber, serialNumber, ServiceLineNum);
+                    Array.prototype.push.apply(poServices, serviceEntries['POservicesObjs']);
+                    poServiceAccessValues.push(serviceEntries['serviceAccessObj']);
+
+                    packageNumber = serviceEntries['packageNumber'];
+                    serialNumber = serviceEntries['serialNumber'];
+                    ServiceLineNum = serviceEntries['ServiceLineNum'];
+
+                    poItemNumber = parseInt(poItemNumber, 10) + parseInt(itemInterval, 10);
+                });
+            }
+            if (!updateLine || gs.nil(grec.erp_line_number)) {
+                grec.erp_line_number = ERPLineNumber.slice(0, -1);
+                grec.update();
+            }
+        }
+        return {
+            polines: poLines,
+            poaccounts: poAccounts,
+            poschedules: poSchedules,
+            poaddress: poAddresses,
+            poservices: poServices,
+            poserviceaccess: poServiceAccessValues
+        };
+    },
+    generateBlanketPOPayload: function(psm_po_sysId, itemInterval, erp, isUpdatePO) {
+        var updateLine = (gs.nil(isUpdatePO) || isUpdatePO == false) ? false : true;
+
+        if (gs.nil(itemInterval))
+            throw new Error('Function Parameter : ItemInterval cannot be blank');
+
+        if (gs.nil(psm_po_sysId))
+            throw new Error('Function Parameter : PO sysId cannot be blank');
+
+        if (gs.nil(erp))
+            throw new Error('Function Parameter : ERP cannot be blank');
+
+        var UtilityActionNames = this.getUtilityActionNames(erp);
+
+        var poLines = [];
+        var poAccounts = [];
+        var poSchedules = [];
+        var poAddresses = [];
+        var poLimits = [];
+        var poServiceAccessValues = [];
+        var poItemNumber = itemInterval;
+        var packageNumber = 1;
+        var serialNumber = 1;
+        var grec;
+        grec = this.getGlideRecords('sn_shop_purchase_order_line', {
+            purchase_order: psm_po_sysId
+        }, ['number']);
+        while (grec.next()) {
+            var polObj = this.executeAction(UtilityActionNames['GenLinesActionName'], {
+                po_items: grec
+            }).purchase_order_item;
+
+            polObj['PO_ITEM'] = this.checkPadding(poItemNumber, 5);
+            polObj['PCKG_NO'] = this.checkPadding(packageNumber, 10);
+            poLines.push(polObj);
+
+            poAccounts.push(this.executeAction(UtilityActionNames['GenAccountActionName'], {
+                po_accounts: grec,
+                po_item_number: polObj['PO_ITEM'],
+                serial_number: this.checkPadding(serialNumber, 2)
+            }).po_accounts);
+
+            poSchedules.push(this.executeAction(UtilityActionNames['GenScheduleActionName'], {
+                po_schedule: grec,
+                po_item_number: polObj['PO_ITEM']
+            }).po_schedule);
+
+            if (!(grec.request_line.location.office))
+                poAddresses.push(this.executeAction(UtilityActionNames['GenAddressActionName'], {
+                    po_address: grec,
+                    po_item_number: polObj['PO_ITEM']
+                }).po_address);
+
+            poLimits.push(this.executeAction(UtilityActionNames['GenLimitsActionName'], {
+                po_limits: grec,
+                package_number: this.checkPadding(packageNumber, 10)
+            }).po_limits);
+
+            var serviceAccessObj = {};
+            serviceAccessObj['SERIAL_NO'] = this.checkPadding(serialNumber, 2);
+            serviceAccessObj['SERNO_LINE'] = this.checkPadding(serialNumber, 2);
+            serviceAccessObj['PCKG_NO'] = this.checkPadding(packageNumber, 10);
+            poServiceAccessValues.push(serviceAccessObj);
+
+            serialNumber++;
+            packageNumber++;
+            if (!updateLine || gs.nil(grec.erp_line_number)) {
+                grec.erp_line_number = polObj['PO_ITEM'];
+                grec.update();
+            }
+            poItemNumber = parseInt(poItemNumber, 10) + parseInt(itemInterval, 10);
+        }
+        return {
+            polines: poLines,
+            poaccounts: poAccounts,
+            poschedules: poSchedules,
+            poaddress: poAddresses,
+            polimits: poLimits,
+            poserviceaccess: poServiceAccessValues
+        };
+
+    },
+    quantityRatio: function(purhcaseLine, purchasedReceived, percentage) {
+        var quantityReceived = ((purchasedReceived * percentage) / 100).toFixed(3);
+        var quantity = [];
+        var costAllocationGR = new GlideRecord('sn_shop_cost_allocation');
+        costAllocationGR.addQuery('request_line.sys_id', purhcaseLine);
+        costAllocationGR.orderBy('cost_center');
+        costAllocationGR.query();
+        while (costAllocationGR.next()) {
+            var costAllocation = parseInt(costAllocationGR.allocation_percentage);
+            var leftQuantity = ((costAllocation * quantityReceived) / 100).toString();
+            quantity.push(leftQuantity);
+        }
+        return quantity;
+    },
+    getServiceGRHeaderECC: function(gr_record, erpNumber) {
+        if (gs.nil(gr_record)) {
+            throw new Error("Null Parameter passed.");
+        } else {
+            var headerResult = this.executeAction('sn_psm_sap_int.generate_ecc_service_goods_receipt_header_object', {
+                gr_header: gr_record
+            });
+            headerResult['service_goods_receipt_header']['PO_ITEM'] = erpNumber;
+        }
+        return headerResult['service_goods_receipt_header'];
+    },
+    getServiceGRServicesECC: function(gr_record, service, interationCount, short_text, purhcaseLine, purchasedReceived, percentage) {
+        quantity = this.quantityRatio(purhcaseLine, purchasedReceived, percentage);
+        var service_gr_services = [];
+        var lineResult1 = this.executeAction('sn_psm_sap_int.generate_ecc_service_goods_receipt_service_object', {
+            gr_service: gr_record
+        });
+        var lineResult2 = this.executeAction('sn_psm_sap_int.generate_ecc_service_goods_receipt_service_object', {
+            gr_service: gr_record
+        });
+        lineResult2['service_goods_receipt']['PCKG_NO'] = "0000000003";
+        lineResult2['service_goods_receipt']['LINE_NO'] = "0000000002";
+        lineResult2['service_goods_receipt']['EXT_LINE'] = "0000000010";
+        lineResult2['service_goods_receipt']['OUTL_IND'] = '';
+        lineResult2['service_goods_receipt']['SUBPCKG_NO'] = '';
+        lineResult2['service_goods_receipt']['SERVICE'] = service;
+        lineResult2['service_goods_receipt']['QUANTITY'] = quantity[interationCount];
+        lineResult2['service_goods_receipt']['SHORT_TEXT'] = short_text;
+
+        service_gr_services.push(lineResult1['service_goods_receipt'], lineResult2['service_goods_receipt']);
+        return service_gr_services;
+
+    },
+    getServiceGRHeaderHANA: function(gr_record, erpNumber) {
+        if (gs.nil(gr_record)) {
+            throw new Error("Null Parameter passed.");
+        } else {
+            var headerResult = this.executeAction('sn_psm_sap_int.generate_hana_service_goods_receipt_header_object', {
+                service_gr_header: gr_record
+            });
+            headerResult['service_goods_receipt_header']['PO_ITEM'] = erpNumber;
+        }
+        return headerResult['service_goods_receipt_header'];
+    },
+    getServiceGRServicesHANA: function(gr_record, service, interationCount, short_text, purhcaseLine, purchasedReceived, percentage) {
+        quantity = this.quantityRatio(purhcaseLine, purchasedReceived, percentage);
+        var service_gr_services = [];
+        var lineResult1 = this.executeAction('sn_psm_sap_int.generate_hana_service_goods_receipt_service_object', {
+            service_gr_service: gr_record
+        });
+        var lineResult2 = this.executeAction('sn_psm_sap_int.generate_hana_service_goods_receipt_service_object', {
+            service_gr_service: gr_record
+        });
+        lineResult2['service_gr_service']['PCKG_NO'] = "0000000003";
+        lineResult2['service_gr_service']['LINE_NO'] = "0000000002";
+        lineResult2['service_gr_service']['EXT_LINE'] = "0000000010";
+        lineResult2['service_gr_service']['OUTL_IND'] = '';
+        lineResult2['service_gr_service']['SUBPCKG_NO'] = '';
+        lineResult2['service_gr_service']['SERVICE'] = service;
+        lineResult2['service_gr_service']['QUANTITY'] = quantity[interationCount];
+        lineResult2['service_gr_service']['SHORT_TEXT'] = short_text;
+
+        service_gr_services.push(lineResult1['service_gr_service'], lineResult2['service_gr_service']);
+        return service_gr_services;
+
+    },
+    type: 'PsmSapUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-21 16:31:02</sys_created_on>
+        <sys_id>ba98c21c87716d102a18b846dabb35e3</sys_id>
+        <sys_mod_count>66</sys_mod_count>
+        <sys_name>PsmSapUtils</sys_name>
+        <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name>sys_script_include_ba98c21c87716d102a18b846dabb35e3</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-01 14:19:42</sys_updated_on>
+    </sys_script_include>
+</record_update>
