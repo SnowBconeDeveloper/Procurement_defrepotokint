@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sn_sap_data_int_integrations_service">
+    <sn_sap_data_int_integrations_service action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <erp_source_configuration display_value="SAP ECC">7bd6edcf871921508dd710683cbb3560</erp_source_configuration>
+        <flow display_value="Fetch Services from SAP ECC">a27a63bd47d3551096fcb777746d43d5</flow>
+        <import_set_tables>sn_psm_sap_int_services_stg</import_set_tables>
+        <name>Services</name>
+        <order>120</order>
+        <properties>{"query":""}</properties>
+        <sys_class_name>sn_sap_data_int_integrations_service</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-25 12:15:55</sys_created_on>
+        <sys_id>326d996347d669105e5faca2026d432a</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>Services</sys_name>
+        <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name>sn_sap_data_int_integrations_service_326d996347d669105e5faca2026d432a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-08 16:17:55</sys_updated_on>
+    </sn_sap_data_int_integrations_service>
+</record_update>
