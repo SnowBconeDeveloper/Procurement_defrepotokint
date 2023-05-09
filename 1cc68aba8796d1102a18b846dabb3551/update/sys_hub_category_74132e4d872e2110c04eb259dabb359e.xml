@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_hub_category">
+    <sys_hub_category action="INSERT_OR_UPDATE">
+        <name>Utility</name>
+        <order>100</order>
+        <sys_class_name>sys_hub_category</sys_class_name>
+        <sys_created_by>satya</sys_created_by>
+        <sys_created_on>2023-04-30 09:08:54</sys_created_on>
+        <sys_id>74132e4d872e2110c04eb259dabb359e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Utility</sys_name>
+        <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name>sys_hub_category_74132e4d872e2110c04eb259dabb359e</sys_update_name>
+        <sys_updated_by>satya</sys_updated_by>
+        <sys_updated_on>2023-04-30 09:08:54</sys_updated_on>
+    </sys_hub_category>
+    <sys_translated_text action="delete_multiple" query="documentkey=74132e4d872e2110c04eb259dabb359e"/>
+</record_update>
