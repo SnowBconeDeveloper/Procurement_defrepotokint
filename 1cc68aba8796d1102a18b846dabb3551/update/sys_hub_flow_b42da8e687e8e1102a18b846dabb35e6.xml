@@ -49,7 +49,7 @@
         <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
         <sys_update_name>sys_hub_flow_b42da8e687e8e1102a18b846dabb35e6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-05-08 12:57:44</sys_updated_on>
+        <sys_updated_on>2023-05-12 12:21:00</sys_updated_on>
         <type>subflow</type>
     </sys_hub_flow>
     <sys_translated_text action="delete_multiple" query="documentkey=b42da8e687e8e1102a18b846dabb35e6"/>
@@ -692,7 +692,8 @@
     <sys_hub_alias_mapping action="delete_multiple" query="source_id=7e385b1787b9e110f245322e0ebb35b5"/>
     <sys_hub_action_instance action="INSERT_OR_UPDATE">
         <action_inputs/>
-        <action_type display_value="">31494eb987a065501dff337e0ebb3532</action_type>
+        <action_inputs/>
+        <action_type display_value="Create Service Goods Receipt">31494eb987a065501dff337e0ebb3532</action_type>
         <action_type_parent/>
         <comment/>
         <display_text/>
@@ -722,7 +723,7 @@
         <sys_updated_by>varun</sys_updated_by>
         <sys_updated_on>2023-04-20 08:04:03</sys_updated_on>
         <value/>
-        <variable display_value="">17494eb987a065501dff337e0ebb353a</variable>
+        <variable display_value="Connection Alias">17494eb987a065501dff337e0ebb353a</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_hub_action_instance</document>
@@ -736,8 +737,57 @@
         <sys_updated_by>varun</sys_updated_by>
         <sys_updated_on>2023-04-20 08:08:45</sys_updated_on>
         <value>{"children":[],"type":"dynamic_object","attributes":{"dynamic":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"2a819e53-efa7-4f12-8d18-c01dba582861"}}</value>
-        <variable display_value="">bbd2460187bce5101dff337e0ebb3584</variable>
+        <variable display_value="Goods Receipt">bbd2460187bce5101dff337e0ebb3584</variable>
     </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=9754beb987166150c04eb259dabb3596"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conn_alias</field>
+        <id>9754beb987166150c04eb259dabb3596</id>
+        <sys_created_by>varun</sys_created_by>
+        <sys_created_on>2023-04-20 08:04:02</sys_created_on>
+        <sys_id>5354beb987166150c04eb259dabb35a5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>varun</sys_updated_by>
+        <sys_updated_on>2023-04-20 08:04:02</sys_updated_on>
+        <table>var__m_sys_hub_action_input_31494eb987a065501dff337e0ebb3532</table>
+        <value>{{subflow.connection_alias}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>dynamic_hidden_input_goods_receipt</field>
+        <id>9754beb987166150c04eb259dabb3596</id>
+        <sys_created_by>varun</sys_created_by>
+        <sys_created_on>2023-04-20 08:04:03</sys_created_on>
+        <sys_id>d754beb987166150c04eb259dabb35a5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>varun</sys_updated_by>
+        <sys_updated_on>2023-04-20 08:04:03</sys_updated_on>
+        <table>var__m_sys_hub_action_input_31494eb987a065501dff337e0ebb3532</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>IT_ENTRYSHEETSERVICES</field>
+        <id>9754beb987166150c04eb259dabb3596</id>
+        <sys_created_by>varun</sys_created_by>
+        <sys_created_on>2023-04-20 08:04:02</sys_created_on>
+        <sys_id>9f54beb987166150c04eb259dabb35a4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>varun</sys_updated_by>
+        <sys_updated_on>2023-04-20 08:04:02</sys_updated_on>
+        <table>var__m_sys_hub_action_input_31494eb987a065501dff337e0ebb3532</table>
+        <value>{{7b55a488-689a-477b-94dc-747b29a5dbad.service_gr_services}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>IV_ENTRYSHEETHEADER</field>
+        <id>9754beb987166150c04eb259dabb3596</id>
+        <sys_created_by>varun</sys_created_by>
+        <sys_created_on>2023-04-20 08:04:03</sys_created_on>
+        <sys_id>1754beb987166150c04eb259dabb35a5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>varun</sys_updated_by>
+        <sys_updated_on>2023-04-20 08:04:03</sys_updated_on>
+        <table>var__m_sys_hub_action_input_31494eb987a065501dff337e0ebb3532</table>
+        <value>{{7b55a488-689a-477b-94dc-747b29a5dbad.service_gr_record}}</value>
+    </sys_element_mapping>
     <sys_hub_input_scripts action="delete_multiple" query="instance=9754beb987166150c04eb259dabb3596"/>
     <sys_hub_alias_mapping action="delete_multiple" query="source_id=9754beb987166150c04eb259dabb3596"/>
     <sys_hub_sub_flow_instance action="delete_multiple" query="flow=b42da8e687e8e1102a18b846dabb35e6^sys_idNOT IN48178b4a879e21102a18b846dabb35e6"/>
@@ -2813,8 +2863,9 @@
     <sys_hub_alias_mapping action="delete_multiple" query="source_id=cc57cb228765a5102a18b846dabb357e"/>
     <sys_hub_action_instance action="INSERT_OR_UPDATE">
         <action_inputs/>
-        <action_type display_value="">31494eb987a065501dff337e0ebb3532</action_type>
-        <action_type_parent display_value="">88fbf1489750a110215b35471153af72</action_type_parent>
+        <action_inputs/>
+        <action_type display_value="Create Service Goods Receipt">31494eb987a065501dff337e0ebb3532</action_type>
+        <action_type_parent display_value="Create Service Goods Receipt">88fbf1489750a110215b35471153af72</action_type_parent>
         <comment/>
         <display_text/>
         <flow display_value="Create Service Goods Receipt in SAP ECC">7b01339187386910c04eb259dabb350c</flow>
@@ -2843,7 +2894,7 @@
         <sys_updated_by>varun</sys_updated_by>
         <sys_updated_on>2023-04-20 08:09:40</sys_updated_on>
         <value>{"children":[],"type":"dynamic_object","attributes":{"dynamic":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"2a819e53-efa7-4f12-8d18-c01dba582861"}}</value>
-        <variable display_value="">bbd2460187bce5101dff337e0ebb3584</variable>
+        <variable display_value="Goods Receipt">bbd2460187bce5101dff337e0ebb3584</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_hub_action_instance</document>
@@ -2857,8 +2908,57 @@
         <sys_updated_by>varun</sys_updated_by>
         <sys_updated_on>2023-04-20 08:04:34</sys_updated_on>
         <value/>
-        <variable display_value="">17494eb987a065501dff337e0ebb353a</variable>
+        <variable display_value="Connection Alias">17494eb987a065501dff337e0ebb353a</variable>
     </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=cf74b2f987166150c04eb259dabb356a"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conn_alias</field>
+        <id>cf74b2f987166150c04eb259dabb356a</id>
+        <sys_created_by>varun</sys_created_by>
+        <sys_created_on>2023-04-20 08:04:34</sys_created_on>
+        <sys_id>0b74b2f987166150c04eb259dabb356c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>varun</sys_updated_by>
+        <sys_updated_on>2023-04-20 08:04:34</sys_updated_on>
+        <table>var__m_sys_hub_action_input_31494eb987a065501dff337e0ebb3532</table>
+        <value>{{subflow.connection_alias}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>dynamic_hidden_input_goods_receipt</field>
+        <id>cf74b2f987166150c04eb259dabb356a</id>
+        <sys_created_by>varun</sys_created_by>
+        <sys_created_on>2023-04-20 08:04:34</sys_created_on>
+        <sys_id>8f74b2f987166150c04eb259dabb356c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>varun</sys_updated_by>
+        <sys_updated_on>2023-04-20 08:04:34</sys_updated_on>
+        <table>var__m_sys_hub_action_input_31494eb987a065501dff337e0ebb3532</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>IT_ENTRYSHEETSERVICES</field>
+        <id>cf74b2f987166150c04eb259dabb356a</id>
+        <sys_created_by>varun</sys_created_by>
+        <sys_created_on>2023-04-20 08:04:34</sys_created_on>
+        <sys_id>4774b2f987166150c04eb259dabb356c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>varun</sys_updated_by>
+        <sys_updated_on>2023-04-20 08:04:34</sys_updated_on>
+        <table>var__m_sys_hub_action_input_31494eb987a065501dff337e0ebb3532</table>
+        <value>{{7b55a488-689a-477b-94dc-747b29a5dbad.service_gr_services}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>IV_ENTRYSHEETHEADER</field>
+        <id>cf74b2f987166150c04eb259dabb356a</id>
+        <sys_created_by>varun</sys_created_by>
+        <sys_created_on>2023-04-20 08:04:34</sys_created_on>
+        <sys_id>cb74b2f987166150c04eb259dabb356c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>varun</sys_updated_by>
+        <sys_updated_on>2023-04-20 08:04:34</sys_updated_on>
+        <table>var__m_sys_hub_action_input_31494eb987a065501dff337e0ebb3532</table>
+        <value>{{7b55a488-689a-477b-94dc-747b29a5dbad.service_gr_record}}</value>
+    </sys_element_mapping>
     <sys_hub_input_scripts action="delete_multiple" query="instance=cf74b2f987166150c04eb259dabb356a"/>
     <sys_hub_alias_mapping action="delete_multiple" query="source_id=cf74b2f987166150c04eb259dabb356a"/>
     <sys_hub_action_instance action="INSERT_OR_UPDATE">
