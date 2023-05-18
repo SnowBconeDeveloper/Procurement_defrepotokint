@@ -6,29 +6,42 @@
         <coalesce_empty_fields>false</coalesce_empty_fields>
         <date_format>yyyy-MM-dd HH:mm:ss</date_format>
         <map display_value="Transform Services">373e7ff54757551096fcb777746d4302</map>
-        <reference_value_field/>
-        <source_field>service_category</source_field>
+        <reference_value_field>code</reference_value_field>
+        <source_field/>
         <source_script><![CDATA[answer = (function transformEntry(source) {
 
-	// Add your code here
-	return ""; // return the value to be put into the target field
-
+    try {
+        if (gs.nil(source.service_category) || source.service_category === '') {
+            return '';
+        }
+        var gr_modelCat = new GlideRecord('cmdb_model_category');
+        gr_modelCat.addEncodedQuery('code=' + source.service_category + '^ORname=' + source.service_category);
+        gr_modelCat.query();
+        if (gr_modelCat.next()) {
+            gr_modelCat.setValue('product_type', 'service');
+            gr_modelCat.update();
+        }
+        return source.service_category;
+    } catch (ex) {
+        gs.error('An error occurred: ' + ex);
+        return '';
+    }
 })(source);]]></source_script>
         <source_table>sn_psm_sap_int_services_stg</source_table>
         <sys_class_name>sys_transform_entry</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-11-22 10:23:39</sys_created_on>
         <sys_id>605f7f394757551096fcb777746d43fd</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_name>service_category</sys_name>
-        <sys_package display_value="Procurement Service Management Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>[Script]</sys_name>
+        <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
         <sys_policy/>
-        <sys_scope display_value="Procurement Service Management Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
         <sys_update_name>sys_transform_entry_605f7f394757551096fcb777746d43fd</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-11-22 10:23:39</sys_updated_on>
+        <sys_updated_on>2023-05-18 15:18:59</sys_updated_on>
         <target_field>product_category</target_field>
         <target_table>cmdb_service_product_model</target_table>
-        <use_source_script>false</use_source_script>
+        <use_source_script>true</use_source_script>
     </sys_transform_entry>
 </record_update>
