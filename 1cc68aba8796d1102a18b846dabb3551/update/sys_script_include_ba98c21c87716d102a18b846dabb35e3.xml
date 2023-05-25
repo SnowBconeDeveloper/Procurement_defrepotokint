@@ -29,8 +29,8 @@ PsmSapUtils.prototype = {
                 if (sys_id) {
                     var obj = {};
                     var grec = element.getRefRecord();
-                    obj['amount'] = grec.reference_amount.toString();
-                    obj['code'] = grec.reference_currency.toString();
+                    obj['amount'] = grec.amount.toString();
+                    obj['code'] = grec.currency.toString();
                     currencyFields[element.getName()] = obj;
                 }
             }
@@ -573,13 +573,13 @@ PsmSapUtils.prototype = {
         <sys_created_by>satya</sys_created_by>
         <sys_created_on>2023-03-21 16:31:02</sys_created_on>
         <sys_id>ba98c21c87716d102a18b846dabb35e3</sys_id>
-        <sys_mod_count>67</sys_mod_count>
+        <sys_mod_count>68</sys_mod_count>
         <sys_name>PsmSapUtils</sys_name>
         <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
         <sys_update_name>sys_script_include_ba98c21c87716d102a18b846dabb35e3</sys_update_name>
         <sys_updated_by>shreenag.araga@snc</sys_updated_by>
-        <sys_updated_on>2023-05-16 15:30:20</sys_updated_on>
+        <sys_updated_on>2023-05-25 10:34:56</sys_updated_on>
     </sys_script_include>
 </record_update>
