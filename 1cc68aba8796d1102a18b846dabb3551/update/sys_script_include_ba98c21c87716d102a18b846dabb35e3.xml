@@ -63,8 +63,8 @@ PsmSapUtils.prototype = {
         try {
             gs.info("Test Value: " + sysIdList);
             var inputs = {};
-            inputs['po_sysid'] = sysIdList; // String 
-            inputs['table_name'] = tblName; // String 
+            inputs['po_sysid'] = sysIdList;
+            inputs['table_name'] = tblName; 
             sn_fd.FlowAPI.getRunner().subflow('sn_psm_sap_int.submit_pos_test_test').inBackground().withInputs(inputs).run();
             return "Ran Successfully";
         } catch (ex) {
@@ -260,9 +260,8 @@ PsmSapUtils.prototype = {
         POServiceObj['QUANTITY'] = POItem['QUANTITY'];
         POServices.push(POServiceObj);
 
-        //serviceAccessObj['PO_ITEM'] = POItem['PO_ITEM'];
-        serviceAccessObj['SERIAL_NO'] = this.checkPadding(serialNumber, 2);
-        serviceAccessObj['SERNO_LINE'] = this.checkPadding(serialNumber, 2);
+        serviceAccessObj['SERIAL_NO'] = "01";
+        serviceAccessObj['SERNO_LINE'] = "01";
         serviceAccessObj['PCKG_NO'] = POServiceObj['PCKG_NO'];
         serviceAccessObj['LINE_NO'] = POServiceObj['LINE_NO'];
 
@@ -360,8 +359,7 @@ PsmSapUtils.prototype = {
                     var AccountInputs = {};
                     AccountInputs['po_accounts'] = grec;
                     AccountInputs['po_item_number'] = po_item['PO_ITEM'];
-                    AccountInputs['serial_number'] = new sn_psm_sap_int.PsmSapUtils().checkPadding(serialNumber, 2);
-
+                    AccountInputs['serial_number'] = "01";
                     var poAccountObj = new sn_psm_sap_int.PsmSapUtils().executeAction(UtilityActionNames['GenAccountActionName'], AccountInputs).po_accounts;
                     poAccountObj['COSTCENTER'] = po_item['temp_costcenter'];
                     delete po_item['temp_costcenter'];
@@ -443,7 +441,7 @@ PsmSapUtils.prototype = {
             poAccounts.push(this.executeAction(UtilityActionNames['GenAccountActionName'], {
                 po_accounts: grec,
                 po_item_number: polObj['PO_ITEM'],
-                serial_number: this.checkPadding(serialNumber, 2)
+                serial_number: "01"
             }).po_accounts);
 
             poSchedules.push(this.executeAction(UtilityActionNames['GenScheduleActionName'], {
@@ -463,8 +461,8 @@ PsmSapUtils.prototype = {
             }).po_limits);
 
             var serviceAccessObj = {};
-            serviceAccessObj['SERIAL_NO'] = this.checkPadding(serialNumber, 2);
-            serviceAccessObj['SERNO_LINE'] = this.checkPadding(serialNumber, 2);
+            serviceAccessObj['SERIAL_NO'] = "01";
+            serviceAccessObj['SERNO_LINE'] = "01";
             serviceAccessObj['PCKG_NO'] = this.checkPadding(packageNumber, 10);
             poServiceAccessValues.push(serviceAccessObj);
 
@@ -572,13 +570,13 @@ PsmSapUtils.prototype = {
         <sys_created_by>satya</sys_created_by>
         <sys_created_on>2023-03-21 16:31:02</sys_created_on>
         <sys_id>ba98c21c87716d102a18b846dabb35e3</sys_id>
-        <sys_mod_count>70</sys_mod_count>
+        <sys_mod_count>71</sys_mod_count>
         <sys_name>PsmSapUtils</sys_name>
         <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
         <sys_update_name>sys_script_include_ba98c21c87716d102a18b846dabb35e3</sys_update_name>
         <sys_updated_by>shreenag.araga@snc</sys_updated_by>
-        <sys_updated_on>2023-05-25 17:35:36</sys_updated_on>
+        <sys_updated_on>2023-05-30 13:23:44</sys_updated_on>
     </sys_script_include>
 </record_update>
