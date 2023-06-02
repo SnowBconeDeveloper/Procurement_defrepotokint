@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element db_object_id="ba239679c355e11068187addd4013196" extends="sys_import_set_row" label="Services" name="sn_psm_sap_int_services_stg" type="collection">
+    <element db_object_id="ba239679c355e11068187addd4013196" extends="sys_import_set_row" label="Services" max_length="40" name="sn_psm_sap_int_services_stg" type="collection">
         <element attributes="edge_encryption_enabled=true" label="Activity number" max_length="18" name="activity_number" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Authorization group" max_length="4" name="authorization_group" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Base unit of measure" max_length="3" name="base_unit_of_measure" type="string"/>
-        <element label="Category of international article number" max_length="40" name="category_of_international_article_number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Category of international article number" max_length="40" name="category_of_international_article_number" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Client" max_length="3" name="client" type="string"/>
-        <element label="Date of last change" max_length="50" name="date_of_last_change" type="string"/>
-        <element label="Date on which record was created" max_length="50" name="date_on_which_record_was_created" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Date of last change" max_length="50" name="date_of_last_change" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Date on which record was created" max_length="50" name="date_on_which_record_was_created" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Deletion indicator" max_length="1" name="deletion_indicator" type="string"/>
-        <element label="Denominator  for conversion of the base unit of measure into the unit for work" max_length="40" name="denominator_for_conversion" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Denominator  for conversion of the base unit of measure into the unit for work" max_length="40" name="denominator_for_conversion" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Division" max_length="2" name="division" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Edition of service type" max_length="4" name="edition_of_service_type" type="string"/>
         <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Erp source" max_length="32" name="erp_source" reference="sn_fin_erp_source" type="reference"/>
         <element attributes="edge_encryption_enabled=true" label="Formula number" max_length="10" name="formula_number" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="General purchasing status for service" max_length="2" name="general_purchasing_status_for_service" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Hierarchy service number" max_length="18" name="hierarchy_service_number" type="string"/>
-        <element label="International article number universal product code" max_length="40" name="international_article_number_universal_product_code" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="International article number universal product code" max_length="40" name="international_article_number_universal_product_code" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Material group" max_length="9" name="material_group" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Name of person who changed object" max_length="12" name="name_of_person_who_changed_object" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Name of person who created the object" max_length="12" name="name_of_person_who_created_the_object" type="string"/>
@@ -31,7 +31,7 @@
         <element attributes="edge_encryption_enabled=true" label="Tax tariff code" max_length="16" name="tax_tariff_code" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Uniform resource locator" max_length="132" name="uniform_resource_locator" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Unit for work" max_length="3" name="unit_for_work" type="string"/>
-        <element attributes="edge_encryption_enabled=true" label="Validity date for purchasing status" max_length="8" name="validity_date_for_purchasing_status" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Validity date for purchasing status" max_length="50" name="validity_date_for_purchasing_status" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Valuation class" max_length="4" name="valuation_class" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Wage type" max_length="4" name="wage_type" type="string"/>
         <index name="index">
