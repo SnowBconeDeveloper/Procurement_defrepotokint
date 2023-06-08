@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>sn_psm_sap_int.MaterialMasterMapping</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Script include contains the mapping between SAP internal names and material staging field.</description>
+        <name>MaterialMasterMapping</name>
+        <script><![CDATA[var MaterialMasterMapping = Class.create();
+MaterialMasterMapping.prototype = {
+    initialize: function() {
+        // Constants for field mappings
+        this.FIELD_MAPPING = {
+            "_ACCGO_ASSGD_UOM": "assignment_uom",
+            "BASMG": "base_quantity",
+            "MEINS": "base_unit_of_measure",
+            "MSEHT": "base_unit_of_measure_desc",
+            "WRKST": "basic_material",
+            "SPEME": "blocked_stock",
+            "RETME": "blocked_stock_returns",
+            "MANDT": "client",
+            "BEHVO": "container_requirements",
+            "UMRSL": "conversion_group_oil_natural_gas",
+            "ERSDA": "created_on",
+            "LFMON": "current_period_posting_period",
+            "LPLPR": "current_planned_price",
+            "PROFL": "dangerous_goods_indicator_profile",
+            "DG_PACK_STATUS": "dangerous_goods_packaging_status",
+            "_INCLUDE": "data_division_marc",
+            "_INCLUDE": "data_division_mard",
+            "ZKDAT": "date_as_of_which_the_price_is_valid",
+            "ZPLD1": "date_from_which_future_planned_price_1_is_valid",
+            "ZPLD2": "date_from_which_future_planned_price_2_is_valid",
+            "ZPLD3": "date_from_which_future_planned_price_3_is_valid",
+            "SGT_MMSTD": "date_from_which_the_plant_specific_material_status_is_valid",
+            "LAEPR": "date_of_the_last_price_change",
+            "LGFSB": "default_storage_location_for_external_procurement",
+            "SPART": "division",
+            "LFGJA": "fiscal_year_of_current_period",
+            "ZPLPR": "future_planned_price",
+            "ZPLP1": "future_planned_price_1",
+            "ZPLP2": "future_planned_price_2",
+            "ZPLP3": "future_planned_price_3",
+            "ZKPRS": "future_price",
+            "BRGEW": "gross_weight",
+            "HUTYP": "handling_unit_type",
+            "STOFF": "hazardous_material_number",
+            "HOEHE": "height",
+            "NORMT": "industry_standard_description_such_as_ansi_or_iso",
+            "LGPRO": "issue_storage_location",
+            "SPRAS": "language",
+            "LAENG": "length",
+            "_BEV1_LULEINH": "loading_units",
+            "PSTAT": "maintenance_status",
+            "MFRNR": "manufacturer_number",
+            "ATTYP": "material_category",
+            "DDTEXT": "material_category_desc",
+            "MAKTX": "material_description",
+            "MFRGR": "material_freight_group",
+            "MATKL": "material_group",
+            "WGBEZ": "material_group_desc",
+            "EKALR": "material_is_costed_with_quantity_structure",
+            "MATFI": "material_is_locked",
+            "DISPR": "material_mrp_profile",
+            "MATNR": "material_number",
+            "DISGR": "mrp_group",
+            "DISMM": "mrp_type",
+            "MTART": "material_type",
+            "MTBEZ": "material_type_desc",
+            "DISPO": "mrp_controller",
+            "ERNAM": "name_of_person_who_created_the_object",
+            "INHAL": "net_contents",
+            "NTGEW": "net_weight",
+            "PACKCODE": "packaging_code",
+            "VHART": "packaging_material_type",
+            "KZILL": "phys_inventory_ind_f_stock_in_qual_insp_in_current_year",
+            "SPERW": "physical_inventory_blocking_indicator",
+            "KZILE": "physical_inventory_indicator_for_restricted_use_stock",
+            "KZILQ": "physical_inventory_indicator_for_whse_stock_in_current_year",
+            "WERKS": "plant_field",
+            "MMSTA": "plant_specific_material_status",
+            "STPRV": "previous_price",
+            "VPRSV": "price_control_indicator",
+            "PEINH": "price_unit",
+            "VMPEI": "price_unit_of_previous_period",
+            "BWVOR": "procurement_rule",
+            "BESKZ": "procurement_type",
+            "OWNPR": "produced_in_house",
+            "_STTPEC_PRDCAT": "product_category",
+            "PRDHA": "product_hierarchy",
+            "FRTME": "production_unit",
+            "PRCTR": "profit_center",
+            "BSTME": "purchase_order_unit_of_measure",
+            "EKGRP": "purchasing_group",
+            "EKWSL": "purchasing_value_key",
+            "HAZMAT": "relevant_for_hazardous_substances",
+            "RETDELC": "return_code",
+            "LOGLEV_RETO": "return_to_logistics_level",
+            "SERNP": "serial_number_profile",
+            "GROES": "size_dimensions",
+            "BWSCL": "source_of_supply",
+            "LSOBS": "special_procurement_type_at_storage_location_level",
+            "STPRS": "standard_price",
+            "VMSTP": "standard_price_in_the_previous_period",
+            "INSME": "stock_in_quality_inspection",
+            "UMLMC": "stock_in_transfer_plant_to_plant",
+            "TRAME": "stock_in_transit",
+            "VKUMC": "stock_transfer_sales_value_plant_to_plant_for_vo_material",
+            "LGPBE": "storage_bin",
+            "RAUBE": "storage_conditions",
+            "LGORT": "storage_location",
+            "DISKZ": "storage_location_mrp_indicator",
+            "MHDLP": "storage_percentage",
+            "EINME": "total_stock_of_all_restricted_batches",
+            "LBKUM": "total_valuated_stock",
+            "VMKUM": "total_valuated_stock_in_previous_period",
+            "MEABM": "unit_of_dimension_for_length_width_height",
+            "AUSME": "unit_of_issue",
+            "MAXH": "unit_of_measure_for_maximum_packing_length_width_height",
+            "TIMESTAMP": "utc_time_stamp_in_short_form_yyyymmddhhmmss",
+            "LABST": "valuated_unrestricted_use_stock",
+            "BWKEY": "valuation_area",
+            "BWTTY": "valuation_category",
+            "BWTAR": "valuation_type",
+            "SALK3": "value_of_total_valuated_stock",
+            "VMSAL": "value_of_total_valuated_stock_in_previous_period",
+            "VOLUM": "volume",
+            "VOLEH": "volume_unit",
+            "GEWEI": "weight_unit",
+            "BREIT": "width"
+        };
+
+    },
+
+    hasMapping: function(key) {
+        // Check if the key has a mapping
+        return this.FIELD_MAPPING.hasOwnProperty(key);
+    },
+
+    getMappedField: function(key) {
+        // Get the mapped field for the key
+        return this.FIELD_MAPPING[key];
+    },
+
+
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-24 15:11:29</sys_created_on>
+        <sys_id>631c9338870f21504a48b887cebb3516</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>MaterialMasterMapping</sys_name>
+        <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name>sys_script_include_631c9338870f21504a48b887cebb3516</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-08 09:47:07</sys_updated_on>
+    </sys_script_include>
+</record_update>

@@ -1,0 +1,2132 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_action_type_definition">
+    <sys_hub_action_type_definition action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <action_status/>
+        <action_template/>
+        <active>true</active>
+        <annotation/>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category display_value="Procurement">eb6ae34983a6211067a211b6feaad312</category>
+        <copied_from>76cec77c87cb21504a48b887cebb353f</copied_from>
+        <copied_from_name>Upsert Material Staging table</copied_from_name>
+        <description>&lt;p&gt;Action gets the data from SAP and add the data in staging table.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Inputs:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Set - Staging table import set.&lt;/li&gt;&lt;li&gt;Material JSON - SAP response in json format.&lt;/li&gt;&lt;/ul&gt;</description>
+        <ih_action>false</ih_action>
+        <internal_name>update_or_create_material_staging_table</internal_name>
+        <label_cache>[{"name":"{{action.material_table}}","label":"action➛Material JSON","type":"action","ref":"","reference_display":"","base_type":"json","parent_table_name":"","column_name":"","choices":null,"attributes":{"uiTypeLabel":"JSON","child_label":"Material table_child0","child_type_label":"Object","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"json","child_type":"object","child_name":"material_table_child0","child_uiUniqueId":"f019e273-3ca2-4141-8cd5-39966bc020dd","uiUniqueId":"4df8bcc0-30c2-4881-be3e-4fc2cabead39"}},{"name":"{{action.set}}","label":"action➛Set","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"string","uiUniqueId":"00c25f19-22f2-4612-9077-0a0975f704b9"}},{"name":"{{action.erp_source}}","label":"action➛ERP Source","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}}]</label_cache>
+        <master_snapshot>4a5762328707e5504a48b887cebb35ea</master_snapshot>
+        <name>Update or Create Material staging table records</name>
+        <natlang/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <state>published</state>
+        <sys_class_name>sys_hub_action_type_definition</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 14:05:46</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>ccc6ce328783e5504a48b887cebb3511</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Update or Create Material staging table records</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name>sys_hub_action_type_definition_ccc6ce328783e5504a48b887cebb3511</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-08 10:10:06</sys_updated_on>
+        <system_level>false</system_level>
+        <type/>
+    </sys_hub_action_type_definition>
+    <sys_translated_text action="delete_multiple" query="documentkey=ccc6ce328783e5504a48b887cebb3511"/>
+    <sys_variable_value action="delete_multiple" query="document_key=ccc6ce328783e5504a48b887cebb3511"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_type_definition</document>
+        <document_key>ccc6ce328783e5504a48b887cebb3511</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 14:05:49</sys_created_on>
+        <sys_id>bcc6ce328783e5504a48b887cebb35a8</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-01 06:16:16</sys_updated_on>
+        <value>{"version":"1.0","complexObject":{},"complexObjectSchema":{"FlowDesigner:FD757e2e13d247ed5034e3c1224300dc36":{},"FlowDesigner:FD757e2e13d247ed5034e3c1224300dc36.$type_facets":{"SimpleMapFacet":"{\"sourceId\":\"\",\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"03b5b425-ee84-4f7f-9a6a-13a1d0e19367\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FD757e2e13d247ed5034e3c1224300dc36\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"sourceUiUniqueId\":\"\",\"sourceType\":\"\",\"hint\":\"\",\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}},"serializationFormat":"JSON"}</value>
+        <variable display_value="Action Status">e8c6ce328783e5504a48b887cebb359b</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_type_definition</document>
+        <document_key>ccc6ce328783e5504a48b887cebb3511</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 14:05:49</sys_created_on>
+        <sys_id>f8c6ce328783e5504a48b887cebb35a8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 14:05:49</sys_updated_on>
+        <value>0</value>
+        <variable display_value="Don't Treat as Error">b8c6ce328783e5504a48b887cebb35a0</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_action_output_ccc6ce328783e5504a48b887cebb3511^id=ccc6ce328783e5504a48b887cebb3511"/>
+    <sys_hub_step_instance action="delete_multiple" query="action=ccc6ce328783e5504a48b887cebb3511^sys_idNOT IN64c6ce328783e5504a48b887cebb357d"/>
+    <sys_hub_step_instance action="INSERT_OR_UPDATE">
+        <action display_value="Update or Create Material staging table records">ccc6ce328783e5504a48b887cebb3511</action>
+        <cid>989a961d-a6cd-4444-8ddb-b9bd932ddbcc</cid>
+        <error_handling_type>1</error_handling_type>
+        <extended_inputs/>
+        <extended_inputs/>
+        <extended_outputs/>
+        <icon/>
+        <inputs/>
+        <label>Script step</label>
+        <order>1</order>
+        <outputs/>
+        <section/>
+        <step_type display_value="Script">106afb6647032200b4fad7527c9a71e7</step_type>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 14:05:47</sys_created_on>
+        <sys_id>64c6ce328783e5504a48b887cebb357d</sys_id>
+        <sys_mod_count>56</sys_mod_count>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-08 09:41:06</sys_updated_on>
+    </sys_hub_step_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=64c6ce328783e5504a48b887cebb357d"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_step_instance</document>
+        <document_key>64c6ce328783e5504a48b887cebb357d</document_key>
+        <order>400</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 14:05:48</sys_created_on>
+        <sys_id>e4c6ce328783e5504a48b887cebb3594</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 14:05:48</sys_updated_on>
+        <value>35aa573fd7802200bdbaee5b5e610375</value>
+        <variable display_value="MID Application">f5e56d79b3101300176b051a16a8dce4</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_step_instance</document>
+        <document_key>64c6ce328783e5504a48b887cebb357d</document_key>
+        <order>600</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 14:05:48</sys_created_on>
+        <sys_id>ecc6ce328783e5504a48b887cebb3594</sys_id>
+        <sys_mod_count>55</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-08 09:41:06</sys_updated_on>
+        <value>(function execute(inputs, outputs) {
+    var table = '';
+    var inp = {};
+    inp.Material = JSON.parse(inputs.mat_obj);
+    var materialMapping = new MaterialMasterMapping();
+    var validKeys = ['MARC', 'MARD', 'MBEW', 'ATTYP', 'T006A', 'T023T', 'MAKT', 'T134T'];
+    for (var i = 0; i &lt; inp.Material.length; i++) {
+        var gr_create = new GlideRecord("sn_psm_sap_int_prodct_stg");
+        gr_create.initialize();
+        gr_create.setValue('set', inputs.set);
+        gr_create.setValue('erp_source', inputs.erp_source);
+        var maraArray = inp.Material[i]['MARA'];
+        for (var k = 0; k &lt; maraArray.length; k++) {
+            var tableKeys = Object.keys(maraArray[k]);
+            tableKeys.forEach(function(table_key) {
+                if (materialMapping.hasMapping(table_key)) {
+                    var mappedField = materialMapping.getMappedField(table_key);
+                    gr_create.setValue(mappedField, maraArray[k][table_key]);
+                }
+            });
+            gr_create.insert();
+        }
+
+        var material = inp.Material[i];
+        for (var key in material) {
+            var query = '';
+            table = key;
+
+            if (validKeys.indexOf(key) != -1) {
+                query = 'material_number=' + inp.Material[i][key][0].MATNR + '^sys_import_set=' + inputs.set;
+
+                if (key == 'MARC') {
+                    query += '^plant_fieldISEMPTY';
+                } else if (key == 'MARD') {
+                    query += '^storage_locationISEMPTY';
+                }
+            } else {
+                continue; // Skip the current iteration and move to the next iteration of the inner loop
+            }
+            var gr = new GlideRecord("sn_psm_sap_int_prodct_stg");
+            gr.addEncodedQuery(query);
+            gr.query();
+            while (gr.next()) {
+                var materialTable = inp.Material[i][table];
+                for (var j = 0; j &lt; materialTable.length; j++) {
+                    var tableKeys = Object.keys(materialTable[j]);
+                    tableKeys.forEach(function(table_key) {
+                        if (materialMapping.hasMapping(table_key)) {
+                            if (table == 'MAKT' &amp;&amp; table_key == 'MAKTX' &amp;&amp; materialTable[j]['SPRAS'] == 'E') {
+                                gr.setValue(materialMapping.getMappedField(table_key), materialTable[j][table_key]);
+                            } else if (table != 'MAKT') {
+                                gr.setValue(materialMapping.getMappedField(table_key), materialTable[j][table_key]);
+                            }
+                        }
+                    });
+                    gr.update();
+                }
+            }
+        }
+    }
+})(inputs, outputs);</value>
+        <variable display_value="Script">71aa7f6647032200b4fad7527c9a719b</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=64c6ce328783e5504a48b887cebb357d"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>erp_source</field>
+        <id>64c6ce328783e5504a48b887cebb357d</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-08 09:02:42</sys_created_on>
+        <sys_id>90b79fad87d72510d1f099783cbb35b0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-08 09:02:42</sys_updated_on>
+        <table>var__m_sys_hub_step_ext_input_64c6ce328783e5504a48b887cebb357d</table>
+        <value>{{action.erp_source}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>mat_no</field>
+        <id>64c6ce328783e5504a48b887cebb357d</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 14:05:48</sys_created_on>
+        <sys_id>20c6ce328783e5504a48b887cebb3596</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 14:05:48</sys_updated_on>
+        <table>var__m_sys_hub_step_ext_input_64c6ce328783e5504a48b887cebb357d</table>
+        <value>{{action.material_number}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>mat_obj</field>
+        <id>64c6ce328783e5504a48b887cebb357d</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 14:05:48</sys_created_on>
+        <sys_id>6cc6ce328783e5504a48b887cebb3595</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 14:05:48</sys_updated_on>
+        <table>var__m_sys_hub_step_ext_input_64c6ce328783e5504a48b887cebb357d</table>
+        <value>{{action.material_table}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>set</field>
+        <id>64c6ce328783e5504a48b887cebb357d</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 14:05:48</sys_created_on>
+        <sys_id>a8c6ce328783e5504a48b887cebb3595</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 14:05:48</sys_updated_on>
+        <table>var__m_sys_hub_step_ext_input_64c6ce328783e5504a48b887cebb357d</table>
+        <value>{{action.set}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table</field>
+        <id>64c6ce328783e5504a48b887cebb357d</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 14:05:48</sys_created_on>
+        <sys_id>e0c6ce328783e5504a48b887cebb3596</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 14:05:48</sys_updated_on>
+        <table>var__m_sys_hub_step_ext_input_64c6ce328783e5504a48b887cebb357d</table>
+        <value>{{action.sap_table}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7^id=64c6ce328783e5504a48b887cebb357d"/>
+    <sys_hub_step_ext_input action="delete_multiple" query="model=64c6ce328783e5504a48b887cebb357d^sys_idNOT IN1acfcb5187d7e110d1f099783cbb35d6,64c6ce328783e5504a48b887cebb3585,94b79fad87d72510d1f099783cbb35a7"/>
+    <sys_hub_step_ext_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=json,uiTypeLabel=JSON</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>mat_obj</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="JSON">json</internal_type>
+        <label/>
+        <mandatory>true</mandatory>
+        <max_length>4000</max_length>
+        <model display_value="Script step">64c6ce328783e5504a48b887cebb357d</model>
+        <model_id>64c6ce328783e5504a48b887cebb357d</model_id>
+        <model_table>sys_hub_step_instance</model_table>
+        <name>var__m_sys_hub_step_ext_input_64c6ce328783e5504a48b887cebb357d</name>
+        <next_element/>
+        <order>0</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_step_ext_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-07 13:49:41</sys_created_on>
+        <sys_id>1acfcb5187d7e110d1f099783cbb35d6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-07 13:49:41</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_step_ext_input>
+    <sys_hub_step_ext_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>set</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label/>
+        <mandatory>true</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Script step">64c6ce328783e5504a48b887cebb357d</model>
+        <model_id>64c6ce328783e5504a48b887cebb357d</model_id>
+        <model_table>sys_hub_step_instance</model_table>
+        <name>var__m_sys_hub_step_ext_input_64c6ce328783e5504a48b887cebb357d</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_step_ext_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 14:05:48</sys_created_on>
+        <sys_id>64c6ce328783e5504a48b887cebb3585</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 16:01:50</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_step_ext_input>
+    <sys_hub_step_ext_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>erp_source</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label/>
+        <mandatory>true</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Script step">64c6ce328783e5504a48b887cebb357d</model>
+        <model_id>64c6ce328783e5504a48b887cebb357d</model_id>
+        <model_table>sys_hub_step_instance</model_table>
+        <name>var__m_sys_hub_step_ext_input_64c6ce328783e5504a48b887cebb357d</name>
+        <next_element/>
+        <order>200</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_step_ext_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-08 09:02:42</sys_created_on>
+        <sys_id>94b79fad87d72510d1f099783cbb35a7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-08 09:02:42</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_step_ext_input>
+    <sys_hub_step_ext_output action="delete_multiple" query="model=64c6ce328783e5504a48b887cebb357d"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=64c6ce328783e5504a48b887cebb357d"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_step_ext_output_64c6ce328783e5504a48b887cebb357d"/>
+    <sys_hub_action_input action="delete_multiple" query="model=ccc6ce328783e5504a48b887cebb3511^sys_idNOT IN10c6ce328783e5504a48b887cebb351b,8cb79fad87d72510d1f099783cbb3598,dcc6ce328783e5504a48b887cebb356f"/>
+    <sys_hub_action_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>child_label=Material table_child0,child_name=material_table_child0,child_type=object,child_type_label=Object,child_uiUniqueId=f019e273-3ca2-4141-8cd5-39966bc020dd,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=json,uiTypeLabel=JSON,uiUniqueId=4df8bcc0-30c2-4881-be3e-4fc2cabead39</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value>[{"MARC":[{"UOMGR":null,"VKUMC":"0","WERKS":"1200","MATNR":"IECPP-2-GE12"},{"UOMGR":null,"VKUMC":"1234","WERKS":"1200","MATNR":"IECPP-2-GE12"}],"MARD":[{"DISKZ":null,"EINME":"0","ERSDA":"2001-02-09","INSME":"0","KZILE":null,"KZILL":null,"MATNR":"IECPP-2-GE12"}],"ATTYP":[{"AS4LOCAL":"A","AS4VERS":"0000","DDLANGUAGE":"E","DDTEXT":"Single material (industry)","DOMVALUE_L":null,"DOMVAL_HD":null,"DOMVAL_LD":null,"MATNR":"IECPP-2-GE12","VALPOS":"0001"}],"MARA":[{"ATTYP":null,"BEHVO":null,"BREIT":"0","BRGEW":"14.1","BSTME":null,"BWSCL":null,"BWVOR":null,"DG_PACK_STATUS":null,"EKWSL":null,"ERNAM":"KIRST","ERSDA":"2001-02-09","GEWEI":"KG","GROES":null,"HAZMAT":null,"HOEHE":"0","HUTYP":null,"INHAL":"0","LAENG":"0","LOGLEV_RETO":null,"MANDT":"807","MATFI":null,"MATKL":"002","MATNR":"IECPP-2-GE12","MAXH":"0","MEABM":null,"MEINS":"ST","MFRGR":null,"MFRNR":null,"MHDLP":"0","MTART":"HAWA","NORMT":null,"NTGEW":"13.2","PACKCODE":null,"PRDHA":null,"PROFL":null,"RAUBE":null,"RETDELC":null,"SPART":"07","STOFF":null,"VHART":null,"VOLEH":null,"VOLUM":"0","WRKST":null}],"MAKT":[{"MAKTX":"HARDDISK, 50 GB","MANDT":"800","MATNR":"IECPP-2-GE12","SPRAS":"6"},{"MAKTX":"Festplatte, 50 GB","MANDT":"800","MATNR":"IECPP-2-GE12","SPRAS":"D"},{"MAKTX":"HARDDISK, 50 GB","MANDT":"800","MATNR":"IECPP-2-GE12","SPRAS":"E"}]},{"MARC":[{"AUSME":null,"BASMG":"0","BESKZ":"F","DISGR":null,"DISMM":"PD","MATNR":"IECPP-2-GE13","WERKS":"1200"}],"MARD":[{"DISKZ":null,"EINME":"0","ERSDA":"2001-02-09","MATNR":"IECPP-2-GE13"}],"ATTYP":[{"AS4LOCAL":"A","AS4VERS":"0000","DDLANGUAGE":"E","DDTEXT":"Single material (industry)","DOMVALUE_L":null,"DOMVAL_HD":null,"DOMVAL_LD":null,"MATNR":"IECPP-2-GE13","VALPOS":"0001"}],"MARA":[{"ATTYP":null,"BEHVO":null,"BREIT":"0","BRGEW":"14.1","BSTME":null,"BWSCL":null,"BWVOR":null,"DG_PACK_STATUS":null,"EKWSL":null,"ERNAM":"KIRST","ERSDA":"2001-02-09","GEWEI":"KG","GROES":null,"HAZMAT":null,"HOEHE":"0","HUTYP":null,"INHAL":"0","LAENG":"0","LOGLEV_RETO":null,"MANDT":"804","MATFI":null,"MATKL":"002","MATNR":"IECPP-2-GE13","MAXH":"0","MEABM":null,"MEINS":"ST","MFRGR":null,"MFRNR":null,"MHDLP":"0","MTART":"HAWA","NORMT":null,"NTGEW":"13.2","PACKCODE":null,"PRDHA":null,"PROFL":null,"RAUBE":null,"RETDELC":null,"SPART":"07","STOFF":null,"VHART":null,"VOLEH":null,"VOLUM":"0","WRKST":null}],"MAKT":[{"MAKTX":"HARDDISK, 50 GB","MANDT":"800","MATNR":"IECPP-2-GE13","SPRAS":"6"},{"MAKTX":"Festplatte, 50 GB","MANDT":"800","MATNR":"IECPP-2-GE13","SPRAS":"D"},{"MAKTX":"HARDDISK, 50 GB","MANDT":"800","MATNR":"IECPP-2-GE13","SPRAS":"E"}]}]</default_value>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>material_table</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="JSON">json</internal_type>
+        <label>Material JSON</label>
+        <mandatory>false</mandatory>
+        <max_length>4000</max_length>
+        <model display_value="Update or Create Material staging table records">ccc6ce328783e5504a48b887cebb3511</model>
+        <model_id>ccc6ce328783e5504a48b887cebb3511</model_id>
+        <model_table>sys_hub_action_type_definition</model_table>
+        <name>var__m_sys_hub_action_input_ccc6ce328783e5504a48b887cebb3511</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_action_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 14:05:47</sys_created_on>
+        <sys_id>10c6ce328783e5504a48b887cebb351b</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-07 13:49:40</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_action_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=10c6ce328783e5504a48b887cebb351b"/>
+    <sys_hub_action_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=a4519c18-1727-451d-8636-df800c47cb62</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>erp_source</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>ERP Source</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Update or Create Material staging table records">ccc6ce328783e5504a48b887cebb3511</model>
+        <model_id>ccc6ce328783e5504a48b887cebb3511</model_id>
+        <model_table>sys_hub_action_type_definition</model_table>
+        <name>var__m_sys_hub_action_input_ccc6ce328783e5504a48b887cebb3511</name>
+        <next_element/>
+        <order>3</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_action_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-08 09:02:41</sys_created_on>
+        <sys_id>8cb79fad87d72510d1f099783cbb3598</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-08 09:02:41</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_action_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=8cb79fad87d72510d1f099783cbb3598"/>
+    <sys_hub_action_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=00c25f19-22f2-4612-9077-0a0975f704b9</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value>d8d0975b87c7ed50d1f099783cbb35ea</default_value>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>set</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Set</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Update or Create Material staging table records">ccc6ce328783e5504a48b887cebb3511</model>
+        <model_id>ccc6ce328783e5504a48b887cebb3511</model_id>
+        <model_table>sys_hub_action_type_definition</model_table>
+        <name>var__m_sys_hub_action_input_ccc6ce328783e5504a48b887cebb3511</name>
+        <next_element/>
+        <order>2</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_action_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 14:05:47</sys_created_on>
+        <sys_id>dcc6ce328783e5504a48b887cebb356f</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-01 08:54:22</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_action_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=dcc6ce328783e5504a48b887cebb356f"/>
+    <sys_hub_action_output action="delete_multiple" query="model=ccc6ce328783e5504a48b887cebb3511^sys_idNOT INb8c6ce328783e5504a48b887cebb35a0,e8c6ce328783e5504a48b887cebb359b"/>
+    <sys_hub_action_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>action_error_output=true,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=boolean,uiTypeLabel=True/False,uiUniqueId=9509622b-15d0-4fa0-88c9-53f75860138c,visible_in_ui=false</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value>true</default_value>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>__dont_treat_as_error__</element>
+        <element_prototype/>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_link/>
+        <internal_type display_value="">boolean</internal_type>
+        <label>Don't Treat as Error</label>
+        <mandatory>false</mandatory>
+        <max_length>40</max_length>
+        <model display_value="Update or Create Material staging table records">ccc6ce328783e5504a48b887cebb3511</model>
+        <model_id>ccc6ce328783e5504a48b887cebb3511</model_id>
+        <model_table>sys_hub_action_type_definition</model_table>
+        <name>var__m_sys_hub_action_output_ccc6ce328783e5504a48b887cebb3511</name>
+        <next_element/>
+        <order>2</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_action_output</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 14:05:48</sys_created_on>
+        <sys_id>b8c6ce328783e5504a48b887cebb35a0</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 14:05:48</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_action_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=b8c6ce328783e5504a48b887cebb35a0"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=b8c6ce328783e5504a48b887cebb35a0"/>
+    <sys_hub_action_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>action_error_output=true,co_type_name=FD757e2e13d247ed5034e3c1224300dc36,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=object,uiTypeLabel=Object,uiUniqueId=03b5b425-ee84-4f7f-9a6a-13a1d0e19367</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>__action_status__</element>
+        <element_prototype/>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_link/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Action Status</label>
+        <mandatory>false</mandatory>
+        <max_length>65000</max_length>
+        <model display_value="Update or Create Material staging table records">ccc6ce328783e5504a48b887cebb3511</model>
+        <model_id>ccc6ce328783e5504a48b887cebb3511</model_id>
+        <model_table>sys_hub_action_type_definition</model_table>
+        <name>var__m_sys_hub_action_output_ccc6ce328783e5504a48b887cebb3511</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_action_output</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 14:05:48</sys_created_on>
+        <sys_id>e8c6ce328783e5504a48b887cebb359b</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-01 06:16:15</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_action_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=e8c6ce328783e5504a48b887cebb359b"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=e8c6ce328783e5504a48b887cebb359b"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=ccc6ce328783e5504a48b887cebb3511"/>
+    <sys_hub_action_status_metadata action="delete_multiple" query="action_type_id=ccc6ce328783e5504a48b887cebb3511^sys_idNOT IN7cc6ce328783e5504a48b887cebb35aa"/>
+    <sys_hub_action_status_metadata action="INSERT_OR_UPDATE">
+        <action_type_id display_value="Update or Create Material staging table records">ccc6ce328783e5504a48b887cebb3511</action_type_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 14:05:49</sys_created_on>
+        <sys_id>7cc6ce328783e5504a48b887cebb35aa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 14:05:49</sys_updated_on>
+    </sys_hub_action_status_metadata>
+    <sys_hub_status_condition action="delete_multiple" query="action_status_metadata_id=7cc6ce328783e5504a48b887cebb35aa"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_input_ccc6ce328783e5504a48b887cebb3511^sys_idNOT IN94b79fad87d72510d1f099783cbb359c,98c6ce328783e5504a48b887cebb356e,9cc6ce328783e5504a48b887cebb3572"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>erp_source</element>
+        <help/>
+        <hint/>
+        <label>ERP Source</label>
+        <language>en</language>
+        <name>var__m_sys_hub_action_input_ccc6ce328783e5504a48b887cebb3511</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-08 09:02:42</sys_created_on>
+        <sys_id>94b79fad87d72510d1f099783cbb359c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ERP Source</sys_name>
+        <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name>sys_documentation_var__m_sys_hub_action_input_ccc6ce328783e5504a48b887cebb3511_erp_source_en</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-08 09:02:42</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>material_table</element>
+        <help/>
+        <hint/>
+        <label>Material JSON</label>
+        <language>en</language>
+        <name>var__m_sys_hub_action_input_ccc6ce328783e5504a48b887cebb3511</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 14:05:47</sys_created_on>
+        <sys_id>98c6ce328783e5504a48b887cebb356e</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Material JSON</sys_name>
+        <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name>sys_documentation_var__m_sys_hub_action_input_ccc6ce328783e5504a48b887cebb3511_material_table_en</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-07 13:49:40</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>set</element>
+        <help/>
+        <hint/>
+        <label>Set</label>
+        <language>en</language>
+        <name>var__m_sys_hub_action_input_ccc6ce328783e5504a48b887cebb3511</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 14:05:47</sys_created_on>
+        <sys_id>9cc6ce328783e5504a48b887cebb3572</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Set</sys_name>
+        <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name>sys_documentation_var__m_sys_hub_action_input_ccc6ce328783e5504a48b887cebb3511_set_en</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 14:05:47</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_action_input_ccc6ce328783e5504a48b887cebb3511"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_output_ccc6ce328783e5504a48b887cebb3511^sys_idNOT INb8c6ce328783e5504a48b887cebb35a5,f8c6ce328783e5504a48b887cebb359f"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>__dont_treat_as_error__</element>
+        <help/>
+        <hint/>
+        <label>Don't Treat as Error</label>
+        <language>en</language>
+        <name>var__m_sys_hub_action_output_ccc6ce328783e5504a48b887cebb3511</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 14:05:49</sys_created_on>
+        <sys_id>b8c6ce328783e5504a48b887cebb35a5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Don't Treat as Error</sys_name>
+        <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name>sys_documentation_var__m_sys_hub_action_output_ccc6ce328783e5504a48b887cebb3511___dont_treat_as_error___en</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 14:05:49</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>__action_status__</element>
+        <help/>
+        <hint/>
+        <label>Action Status</label>
+        <language>en</language>
+        <name>var__m_sys_hub_action_output_ccc6ce328783e5504a48b887cebb3511</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 14:05:48</sys_created_on>
+        <sys_id>f8c6ce328783e5504a48b887cebb359f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Action Status</sys_name>
+        <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name>sys_documentation_var__m_sys_hub_action_output_ccc6ce328783e5504a48b887cebb3511___action_status___en</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 14:05:48</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_action_output_ccc6ce328783e5504a48b887cebb3511"/>
+    <sys_hub_action_plan action="delete_multiple" query="action_id=ccc6ce328783e5504a48b887cebb3511^sys_idNOT INdf57a2328707e5504a48b887cebb35bd"/>
+    <sys_hub_action_plan action="INSERT_OR_UPDATE">
+        <action_id display_value="Update or Create Material staging table records">ccc6ce328783e5504a48b887cebb3511</action_id>
+        <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_hub_action_plan","id":"df57a2328707e5504a48b887cebb35bd","name":"plan","plan_signature":null}}</plan>
+        <snapshot>07fc53a5871b2510d1f099783cbb3569</snapshot>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 16:28:15</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>df57a2328707e5504a48b887cebb35bd</sys_id>
+        <sys_mod_count>56</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-08 09:25:51</sys_updated_on>
+    </sys_hub_action_plan>
+    <sys_hub_action_type_snapshot action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <action_status/>
+        <action_template/>
+        <annotation/>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category display_value="Procurement">eb6ae34983a6211067a211b6feaad312</category>
+        <copied_from/>
+        <copied_from_name/>
+        <description>&lt;p&gt;Action gets the data from SAP and add the data in staging table.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Inputs:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Set - Staging table import set.&lt;/li&gt;&lt;li&gt;Material JSON - SAP response in json format.&lt;/li&gt;&lt;/ul&gt;</description>
+        <internal_name>update_or_create_material_staging_table</internal_name>
+        <label_cache>[{"name":"{{action.material_table}}","label":"action➛Material JSON","type":"action","ref":"","reference_display":"","base_type":"json","parent_table_name":"","column_name":"","choices":null,"attributes":{"uiTypeLabel":"JSON","child_label":"Material table_child0","child_type_label":"Object","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"json","child_type":"object","child_name":"material_table_child0","child_uiUniqueId":"f019e273-3ca2-4141-8cd5-39966bc020dd","uiUniqueId":"4df8bcc0-30c2-4881-be3e-4fc2cabead39"}},{"name":"{{action.set}}","label":"action➛Set","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"string","uiUniqueId":"00c25f19-22f2-4612-9077-0a0975f704b9"}},{"name":"{{action.erp_source}}","label":"action➛ERP Source","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}}]</label_cache>
+        <master>true</master>
+        <name>Update or Create Material staging table records</name>
+        <natlang/>
+        <outputs/>
+        <parent_action display_value="Update or Create Material staging table records">ccc6ce328783e5504a48b887cebb3511</parent_action>
+        <sys_class_name>sys_hub_action_type_snapshot</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 16:28:10</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>4a5762328707e5504a48b887cebb35ea</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-08 09:02:44</sys_updated_on>
+        <system_level>false</system_level>
+        <type/>
+    </sys_hub_action_type_snapshot>
+    <sys_translated_text action="delete_multiple" query="documentkey=4a5762328707e5504a48b887cebb35ea"/>
+    <sys_variable_value action="delete_multiple" query="document_key=4a5762328707e5504a48b887cebb35ea"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_type_snapshot</document>
+        <document_key>4a5762328707e5504a48b887cebb35ea</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 16:28:12</sys_created_on>
+        <sys_id>2257a2328707e5504a48b887cebb354e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 16:28:12</sys_updated_on>
+        <value>0</value>
+        <variable display_value="Don't Treat as Error">6a57a2328707e5504a48b887cebb3546</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_type_snapshot</document>
+        <document_key>4a5762328707e5504a48b887cebb35ea</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 16:28:12</sys_created_on>
+        <sys_id>e257a2328707e5504a48b887cebb354e</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-01 06:16:18</sys_updated_on>
+        <value>{"version":"1.0","complexObject":{"code":{"$cv":{"$c":"java.lang.String","$v":""}},"message":{"$cv":{"$c":"java.lang.String","$v":""}}},"complexObjectSchema":{"FlowDesigner:FDACTIONSTATUS":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FDACTIONSTATUS.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"4adfb7bc-9d67-498d-88d0-8d6c3d584fed\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FDACTIONSTATUS\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}},"serializationFormat":"JSON"}</value>
+        <variable display_value="Action Status">6257a2328707e5504a48b887cebb3542</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_action_output_4a5762328707e5504a48b887cebb35ea^id=4a5762328707e5504a48b887cebb35ea"/>
+    <sys_hub_step_instance action="delete_multiple" query="action=4a5762328707e5504a48b887cebb35ea^sys_idNOT IN1e57a2328707e5504a48b887cebb3528"/>
+    <sys_hub_step_instance action="INSERT_OR_UPDATE">
+        <action display_value="Update or Create Material staging table records">4a5762328707e5504a48b887cebb35ea</action>
+        <cid>989a961d-a6cd-4444-8ddb-b9bd932ddbcc</cid>
+        <error_handling_type>1</error_handling_type>
+        <extended_inputs/>
+        <extended_inputs/>
+        <extended_outputs/>
+        <icon/>
+        <inputs/>
+        <label>Script step</label>
+        <order>1</order>
+        <outputs/>
+        <section/>
+        <step_type display_value="Script">106afb6647032200b4fad7527c9a71e7</step_type>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 16:28:11</sys_created_on>
+        <sys_id>1e57a2328707e5504a48b887cebb3528</sys_id>
+        <sys_mod_count>54</sys_mod_count>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-08 09:41:09</sys_updated_on>
+    </sys_hub_step_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=1e57a2328707e5504a48b887cebb3528"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_step_instance</document>
+        <document_key>1e57a2328707e5504a48b887cebb3528</document_key>
+        <order>600</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 16:28:11</sys_created_on>
+        <sys_id>9657a2328707e5504a48b887cebb353e</sys_id>
+        <sys_mod_count>53</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-08 09:41:09</sys_updated_on>
+        <value>(function execute(inputs, outputs) {
+    var table = '';
+    var inp = {};
+    inp.Material = JSON.parse(inputs.mat_obj);
+    var materialMapping = new MaterialMasterMapping();
+    var validKeys = ['MARC', 'MARD', 'MBEW', 'ATTYP', 'T006A', 'T023T', 'MAKT', 'T134T'];
+    for (var i = 0; i &lt; inp.Material.length; i++) {
+        var gr_create = new GlideRecord("sn_psm_sap_int_prodct_stg");
+        gr_create.initialize();
+        gr_create.setValue('set', inputs.set);
+        gr_create.setValue('erp_source', inputs.erp_source);
+        var maraArray = inp.Material[i]['MARA'];
+        for (var k = 0; k &lt; maraArray.length; k++) {
+            var tableKeys = Object.keys(maraArray[k]);
+            tableKeys.forEach(function(table_key) {
+                if (materialMapping.hasMapping(table_key)) {
+                    var mappedField = materialMapping.getMappedField(table_key);
+                    gr_create.setValue(mappedField, maraArray[k][table_key]);
+                }
+            });
+            gr_create.insert();
+        }
+
+        var material = inp.Material[i];
+        for (var key in material) {
+            var query = '';
+            table = key;
+
+            if (validKeys.indexOf(key) != -1) {
+                query = 'material_number=' + inp.Material[i][key][0].MATNR + '^sys_import_set=' + inputs.set;
+
+                if (key == 'MARC') {
+                    query += '^plant_fieldISEMPTY';
+                } else if (key == 'MARD') {
+                    query += '^storage_locationISEMPTY';
+                }
+            } else {
+                continue; // Skip the current iteration and move to the next iteration of the inner loop
+            }
+            var gr = new GlideRecord("sn_psm_sap_int_prodct_stg");
+            gr.addEncodedQuery(query);
+            gr.query();
+            while (gr.next()) {
+                var materialTable = inp.Material[i][table];
+                for (var j = 0; j &lt; materialTable.length; j++) {
+                    var tableKeys = Object.keys(materialTable[j]);
+                    tableKeys.forEach(function(table_key) {
+                        if (materialMapping.hasMapping(table_key)) {
+                            if (table == 'MAKT' &amp;&amp; table_key == 'MAKTX' &amp;&amp; materialTable[j]['SPRAS'] == 'E') {
+                                gr.setValue(materialMapping.getMappedField(table_key), materialTable[j][table_key]);
+                            } else if (table != 'MAKT') {
+                                gr.setValue(materialMapping.getMappedField(table_key), materialTable[j][table_key]);
+                            }
+                        }
+                    });
+                    gr.update();
+                }
+            }
+        }
+    }
+})(inputs, outputs);</value>
+        <variable display_value="Script">71aa7f6647032200b4fad7527c9a719b</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_step_instance</document>
+        <document_key>1e57a2328707e5504a48b887cebb3528</document_key>
+        <order>400</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 16:28:11</sys_created_on>
+        <sys_id>d257a2328707e5504a48b887cebb353e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 16:28:11</sys_updated_on>
+        <value>35aa573fd7802200bdbaee5b5e610375</value>
+        <variable display_value="MID Application">f5e56d79b3101300176b051a16a8dce4</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=1e57a2328707e5504a48b887cebb3528"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>erp_source</field>
+        <id>1e57a2328707e5504a48b887cebb3528</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-08 09:02:44</sys_created_on>
+        <sys_id>38b7dfad87d72510d1f099783cbb3515</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-08 09:02:44</sys_updated_on>
+        <table>var__m_sys_hub_step_ext_input_1e57a2328707e5504a48b887cebb3528</table>
+        <value>{{action.erp_source}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>mat_no</field>
+        <id>1e57a2328707e5504a48b887cebb3528</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 16:28:11</sys_created_on>
+        <sys_id>5657a2328707e5504a48b887cebb353f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 16:28:11</sys_updated_on>
+        <table>var__m_sys_hub_step_ext_input_1e57a2328707e5504a48b887cebb3528</table>
+        <value>{{action.material_number}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>mat_obj</field>
+        <id>1e57a2328707e5504a48b887cebb3528</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 16:28:11</sys_created_on>
+        <sys_id>9257a2328707e5504a48b887cebb353f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 16:28:11</sys_updated_on>
+        <table>var__m_sys_hub_step_ext_input_1e57a2328707e5504a48b887cebb3528</table>
+        <value>{{action.material_table}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>set</field>
+        <id>1e57a2328707e5504a48b887cebb3528</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 16:28:11</sys_created_on>
+        <sys_id>de57a2328707e5504a48b887cebb353e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 16:28:11</sys_updated_on>
+        <table>var__m_sys_hub_step_ext_input_1e57a2328707e5504a48b887cebb3528</table>
+        <value>{{action.set}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table</field>
+        <id>1e57a2328707e5504a48b887cebb3528</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 16:28:11</sys_created_on>
+        <sys_id>1a57a2328707e5504a48b887cebb353f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 16:28:11</sys_updated_on>
+        <table>var__m_sys_hub_step_ext_input_1e57a2328707e5504a48b887cebb3528</table>
+        <value>{{action.sap_table}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7^id=1e57a2328707e5504a48b887cebb3528"/>
+    <sys_hub_step_ext_input action="delete_multiple" query="model=1e57a2328707e5504a48b887cebb3528^sys_idNOT IN1257a2328707e5504a48b887cebb3530,36cf0f5187d7e110d1f099783cbb3548,f8b7dfad87d72510d1f099783cbb350d"/>
+    <sys_hub_step_ext_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>set</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>set</label>
+        <mandatory>true</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Script step">1e57a2328707e5504a48b887cebb3528</model>
+        <model_id>1e57a2328707e5504a48b887cebb3528</model_id>
+        <model_table>sys_hub_step_instance</model_table>
+        <name>var__m_sys_hub_step_ext_input_1e57a2328707e5504a48b887cebb3528</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_step_ext_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 16:28:11</sys_created_on>
+        <sys_id>1257a2328707e5504a48b887cebb3530</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 16:28:11</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_step_ext_input>
+    <sys_hub_step_ext_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=json,uiTypeLabel=JSON</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>mat_obj</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="JSON">json</internal_type>
+        <label>mat_obj</label>
+        <mandatory>true</mandatory>
+        <max_length>4000</max_length>
+        <model display_value="Script step">1e57a2328707e5504a48b887cebb3528</model>
+        <model_id>1e57a2328707e5504a48b887cebb3528</model_id>
+        <model_table>sys_hub_step_instance</model_table>
+        <name>var__m_sys_hub_step_ext_input_1e57a2328707e5504a48b887cebb3528</name>
+        <next_element/>
+        <order>0</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_step_ext_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-07 13:49:43</sys_created_on>
+        <sys_id>36cf0f5187d7e110d1f099783cbb3548</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-07 13:49:43</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_step_ext_input>
+    <sys_hub_step_ext_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>erp_source</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>erp_source</label>
+        <mandatory>true</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Script step">1e57a2328707e5504a48b887cebb3528</model>
+        <model_id>1e57a2328707e5504a48b887cebb3528</model_id>
+        <model_table>sys_hub_step_instance</model_table>
+        <name>var__m_sys_hub_step_ext_input_1e57a2328707e5504a48b887cebb3528</name>
+        <next_element/>
+        <order>200</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_step_ext_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-08 09:02:44</sys_created_on>
+        <sys_id>f8b7dfad87d72510d1f099783cbb350d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-08 09:02:44</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_step_ext_input>
+    <sys_hub_step_ext_output action="delete_multiple" query="model=1e57a2328707e5504a48b887cebb3528"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=1e57a2328707e5504a48b887cebb3528"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_step_ext_output_1e57a2328707e5504a48b887cebb3528"/>
+    <sys_hub_action_input action="delete_multiple" query="model=4a5762328707e5504a48b887cebb35ea^sys_idNOT IN0e5762328707e5504a48b887cebb35ed,4257a2328707e5504a48b887cebb350d,b8b7dfad87d72510d1f099783cbb3502"/>
+    <sys_hub_action_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>child_label=Material table_child0,child_name=material_table_child0,child_type=object,child_type_label=Object,child_uiUniqueId=f019e273-3ca2-4141-8cd5-39966bc020dd,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=json,uiTypeLabel=JSON,uiUniqueId=4df8bcc0-30c2-4881-be3e-4fc2cabead39</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value>[{"MARC":[{"UOMGR":null,"VKUMC":"0","WERKS":"1200","MATNR":"IECPP-2-GE12"},{"UOMGR":null,"VKUMC":"1234","WERKS":"1200","MATNR":"IECPP-2-GE12"}],"MARD":[{"DISKZ":null,"EINME":"0","ERSDA":"2001-02-09","INSME":"0","KZILE":null,"KZILL":null,"MATNR":"IECPP-2-GE12"}],"ATTYP":[{"AS4LOCAL":"A","AS4VERS":"0000","DDLANGUAGE":"E","DDTEXT":"Single material (industry)","DOMVALUE_L":null,"DOMVAL_HD":null,"DOMVAL_LD":null,"MATNR":"IECPP-2-GE12","VALPOS":"0001"}],"MARA":[{"ATTYP":null,"BEHVO":null,"BREIT":"0","BRGEW":"14.1","BSTME":null,"BWSCL":null,"BWVOR":null,"DG_PACK_STATUS":null,"EKWSL":null,"ERNAM":"KIRST","ERSDA":"2001-02-09","GEWEI":"KG","GROES":null,"HAZMAT":null,"HOEHE":"0","HUTYP":null,"INHAL":"0","LAENG":"0","LOGLEV_RETO":null,"MANDT":"807","MATFI":null,"MATKL":"002","MATNR":"IECPP-2-GE12","MAXH":"0","MEABM":null,"MEINS":"ST","MFRGR":null,"MFRNR":null,"MHDLP":"0","MTART":"HAWA","NORMT":null,"NTGEW":"13.2","PACKCODE":null,"PRDHA":null,"PROFL":null,"RAUBE":null,"RETDELC":null,"SPART":"07","STOFF":null,"VHART":null,"VOLEH":null,"VOLUM":"0","WRKST":null}],"MAKT":[{"MAKTX":"HARDDISK, 50 GB","MANDT":"800","MATNR":"IECPP-2-GE12","SPRAS":"6"},{"MAKTX":"Festplatte, 50 GB","MANDT":"800","MATNR":"IECPP-2-GE12","SPRAS":"D"},{"MAKTX":"HARDDISK, 50 GB","MANDT":"800","MATNR":"IECPP-2-GE12","SPRAS":"E"}]},{"MARC":[{"AUSME":null,"BASMG":"0","BESKZ":"F","DISGR":null,"DISMM":"PD","MATNR":"IECPP-2-GE13","WERKS":"1200"}],"MARD":[{"DISKZ":null,"EINME":"0","ERSDA":"2001-02-09","MATNR":"IECPP-2-GE13"}],"ATTYP":[{"AS4LOCAL":"A","AS4VERS":"0000","DDLANGUAGE":"E","DDTEXT":"Single material (industry)","DOMVALUE_L":null,"DOMVAL_HD":null,"DOMVAL_LD":null,"MATNR":"IECPP-2-GE13","VALPOS":"0001"}],"MARA":[{"ATTYP":null,"BEHVO":null,"BREIT":"0","BRGEW":"14.1","BSTME":null,"BWSCL":null,"BWVOR":null,"DG_PACK_STATUS":null,"EKWSL":null,"ERNAM":"KIRST","ERSDA":"2001-02-09","GEWEI":"KG","GROES":null,"HAZMAT":null,"HOEHE":"0","HUTYP":null,"INHAL":"0","LAENG":"0","LOGLEV_RETO":null,"MANDT":"804","MATFI":null,"MATKL":"002","MATNR":"IECPP-2-GE13","MAXH":"0","MEABM":null,"MEINS":"ST","MFRGR":null,"MFRNR":null,"MHDLP":"0","MTART":"HAWA","NORMT":null,"NTGEW":"13.2","PACKCODE":null,"PRDHA":null,"PROFL":null,"RAUBE":null,"RETDELC":null,"SPART":"07","STOFF":null,"VHART":null,"VOLEH":null,"VOLUM":"0","WRKST":null}],"MAKT":[{"MAKTX":"HARDDISK, 50 GB","MANDT":"800","MATNR":"IECPP-2-GE13","SPRAS":"6"},{"MAKTX":"Festplatte, 50 GB","MANDT":"800","MATNR":"IECPP-2-GE13","SPRAS":"D"},{"MAKTX":"HARDDISK, 50 GB","MANDT":"800","MATNR":"IECPP-2-GE13","SPRAS":"E"}]}]</default_value>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>material_table</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="JSON">json</internal_type>
+        <label>Material JSON</label>
+        <mandatory>false</mandatory>
+        <max_length>4000</max_length>
+        <model display_value="Update or Create Material staging table records">4a5762328707e5504a48b887cebb35ea</model>
+        <model_id>4a5762328707e5504a48b887cebb35ea</model_id>
+        <model_table>sys_hub_action_type_snapshot</model_table>
+        <name>var__m_sys_hub_action_input_4a5762328707e5504a48b887cebb35ea</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_action_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 16:28:10</sys_created_on>
+        <sys_id>0e5762328707e5504a48b887cebb35ed</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-07 13:49:43</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_action_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=0e5762328707e5504a48b887cebb35ed"/>
+    <sys_hub_action_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=00c25f19-22f2-4612-9077-0a0975f704b9</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value>d8d0975b87c7ed50d1f099783cbb35ea</default_value>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>set</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Set</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Update or Create Material staging table records">4a5762328707e5504a48b887cebb35ea</model>
+        <model_id>4a5762328707e5504a48b887cebb35ea</model_id>
+        <model_table>sys_hub_action_type_snapshot</model_table>
+        <name>var__m_sys_hub_action_input_4a5762328707e5504a48b887cebb35ea</name>
+        <next_element/>
+        <order>2</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_action_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 16:28:10</sys_created_on>
+        <sys_id>4257a2328707e5504a48b887cebb350d</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-01 08:54:27</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_action_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=4257a2328707e5504a48b887cebb350d"/>
+    <sys_hub_action_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=a4519c18-1727-451d-8636-df800c47cb62</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>erp_source</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>ERP Source</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Update or Create Material staging table records">4a5762328707e5504a48b887cebb35ea</model>
+        <model_id>4a5762328707e5504a48b887cebb35ea</model_id>
+        <model_table>sys_hub_action_type_snapshot</model_table>
+        <name>var__m_sys_hub_action_input_4a5762328707e5504a48b887cebb35ea</name>
+        <next_element/>
+        <order>3</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_action_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-08 09:02:44</sys_created_on>
+        <sys_id>b8b7dfad87d72510d1f099783cbb3502</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-08 09:02:44</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_action_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=b8b7dfad87d72510d1f099783cbb3502"/>
+    <sys_hub_action_output action="delete_multiple" query="model=4a5762328707e5504a48b887cebb35ea^sys_idNOT IN6257a2328707e5504a48b887cebb3542,6a57a2328707e5504a48b887cebb3546"/>
+    <sys_hub_action_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>action_error_output=true,co_type_name=FDACTIONSTATUS,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=object,uiTypeLabel=Object,uiUniqueId=03b5b425-ee84-4f7f-9a6a-13a1d0e19367</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>__action_status__</element>
+        <element_prototype/>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_link/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Action Status</label>
+        <mandatory>false</mandatory>
+        <max_length>65000</max_length>
+        <model display_value="Update or Create Material staging table records">4a5762328707e5504a48b887cebb35ea</model>
+        <model_id>4a5762328707e5504a48b887cebb35ea</model_id>
+        <model_table>sys_hub_action_type_snapshot</model_table>
+        <name>var__m_sys_hub_action_output_4a5762328707e5504a48b887cebb35ea</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_action_output</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 16:28:12</sys_created_on>
+        <sys_id>6257a2328707e5504a48b887cebb3542</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 16:28:12</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_action_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=6257a2328707e5504a48b887cebb3542"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=6257a2328707e5504a48b887cebb3542"/>
+    <sys_hub_action_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>action_error_output=true,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=boolean,uiTypeLabel=True/False,uiUniqueId=9509622b-15d0-4fa0-88c9-53f75860138c,visible_in_ui=false</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value>true</default_value>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>__dont_treat_as_error__</element>
+        <element_prototype/>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_link/>
+        <internal_type display_value="">boolean</internal_type>
+        <label>Don't Treat as Error</label>
+        <mandatory>false</mandatory>
+        <max_length>40</max_length>
+        <model display_value="Update or Create Material staging table records">4a5762328707e5504a48b887cebb35ea</model>
+        <model_id>4a5762328707e5504a48b887cebb35ea</model_id>
+        <model_table>sys_hub_action_type_snapshot</model_table>
+        <name>var__m_sys_hub_action_output_4a5762328707e5504a48b887cebb35ea</name>
+        <next_element/>
+        <order>2</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_action_output</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 16:28:12</sys_created_on>
+        <sys_id>6a57a2328707e5504a48b887cebb3546</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 16:28:12</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_action_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=6a57a2328707e5504a48b887cebb3546"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=6a57a2328707e5504a48b887cebb3546"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=4a5762328707e5504a48b887cebb35ea"/>
+    <sys_hub_action_status_metadata action="delete_multiple" query="action_type_id=4a5762328707e5504a48b887cebb35ea^sys_idNOT INae57a2328707e5504a48b887cebb354f"/>
+    <sys_hub_action_status_metadata action="INSERT_OR_UPDATE">
+        <action_type_id display_value="Update or Create Material staging table records">4a5762328707e5504a48b887cebb35ea</action_type_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 16:28:12</sys_created_on>
+        <sys_id>ae57a2328707e5504a48b887cebb354f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 16:28:12</sys_updated_on>
+    </sys_hub_action_status_metadata>
+    <sys_hub_status_condition action="delete_multiple" query="action_status_metadata_id=ae57a2328707e5504a48b887cebb354f"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_input_4a5762328707e5504a48b887cebb35ea^sys_idNOT IN78b7dfad87d72510d1f099783cbb3505,8257a2328707e5504a48b887cebb350c,8a57a2328707e5504a48b887cebb3511"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>erp_source</element>
+        <help/>
+        <hint/>
+        <label>ERP Source</label>
+        <language>en</language>
+        <name>var__m_sys_hub_action_input_4a5762328707e5504a48b887cebb35ea</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-08 09:02:44</sys_created_on>
+        <sys_id>78b7dfad87d72510d1f099783cbb3505</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ERP Source</sys_name>
+        <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name>sys_documentation_var__m_sys_hub_action_input_4a5762328707e5504a48b887cebb35ea_erp_source_en</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-08 09:02:44</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>material_table</element>
+        <help/>
+        <hint/>
+        <label>Material JSON</label>
+        <language>en</language>
+        <name>var__m_sys_hub_action_input_4a5762328707e5504a48b887cebb35ea</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 16:28:10</sys_created_on>
+        <sys_id>8257a2328707e5504a48b887cebb350c</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Material JSON</sys_name>
+        <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name>sys_documentation_var__m_sys_hub_action_input_4a5762328707e5504a48b887cebb35ea_material_table_en</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-07 13:49:43</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>set</element>
+        <help/>
+        <hint/>
+        <label>Set</label>
+        <language>en</language>
+        <name>var__m_sys_hub_action_input_4a5762328707e5504a48b887cebb35ea</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 16:28:10</sys_created_on>
+        <sys_id>8a57a2328707e5504a48b887cebb3511</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Set</sys_name>
+        <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name>sys_documentation_var__m_sys_hub_action_input_4a5762328707e5504a48b887cebb35ea_set_en</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 16:28:10</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_action_input_4a5762328707e5504a48b887cebb35ea"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_output_4a5762328707e5504a48b887cebb35ea^sys_idNOT IN2657a2328707e5504a48b887cebb354b,aa57a2328707e5504a48b887cebb3545"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>__dont_treat_as_error__</element>
+        <help/>
+        <hint/>
+        <label>Don't Treat as Error</label>
+        <language>en</language>
+        <name>var__m_sys_hub_action_output_4a5762328707e5504a48b887cebb35ea</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 16:28:12</sys_created_on>
+        <sys_id>2657a2328707e5504a48b887cebb354b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Don't Treat as Error</sys_name>
+        <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name>sys_documentation_var__m_sys_hub_action_output_4a5762328707e5504a48b887cebb35ea___dont_treat_as_error___en</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 16:28:12</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>__action_status__</element>
+        <help/>
+        <hint/>
+        <label>Action Status</label>
+        <language>en</language>
+        <name>var__m_sys_hub_action_output_4a5762328707e5504a48b887cebb35ea</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-30 16:28:12</sys_created_on>
+        <sys_id>aa57a2328707e5504a48b887cebb3545</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Action Status</sys_name>
+        <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
+        <sys_update_name>sys_documentation_var__m_sys_hub_action_output_4a5762328707e5504a48b887cebb35ea___action_status___en</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-30 16:28:12</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_action_output_4a5762328707e5504a48b887cebb35ea"/>
+    <sys_hub_action_type_definition action="UPDATE">
+        <sys_id>ccc6ce328783e5504a48b887cebb3511</sys_id>
+        <latest_snapshot>4a5762328707e5504a48b887cebb35ea</latest_snapshot>
+        <compiler_build>glide-tokyo-07-08-2022__patch8-03-16-2023_03-24-2023_1357.zip</compiler_build>
+    </sys_hub_action_type_definition>
+</record_update>
