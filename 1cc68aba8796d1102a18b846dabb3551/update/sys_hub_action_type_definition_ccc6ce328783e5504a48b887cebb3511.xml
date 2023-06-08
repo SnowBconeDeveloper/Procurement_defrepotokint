@@ -13,7 +13,7 @@
         <description>&lt;p&gt;Action gets the data from SAP and add the data in staging table.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Inputs:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Set - Staging table import set.&lt;/li&gt;&lt;li&gt;Material JSON - SAP response in json format.&lt;/li&gt;&lt;/ul&gt;</description>
         <ih_action>false</ih_action>
         <internal_name>update_or_create_material_staging_table</internal_name>
-        <label_cache>[{"name":"{{action.material_table}}","label":"action➛Material JSON","type":"action","ref":"","reference_display":"","base_type":"json","parent_table_name":"","column_name":"","choices":null,"attributes":{"uiTypeLabel":"JSON","child_label":"Material table_child0","child_type_label":"Object","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"json","child_type":"object","child_name":"material_table_child0","child_uiUniqueId":"f019e273-3ca2-4141-8cd5-39966bc020dd","uiUniqueId":"4df8bcc0-30c2-4881-be3e-4fc2cabead39"}},{"name":"{{action.set}}","label":"action➛Set","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"string","uiUniqueId":"00c25f19-22f2-4612-9077-0a0975f704b9"}},{"name":"{{action.erp_source}}","label":"action➛ERP Source","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}}]</label_cache>
+        <label_cache>[{"name":"{{action.material_table}}","label":"action➛Material JSON","type":"action","ref":"","reference_display":"","base_type":"json","parent_table_name":"","column_name":"","choices":null,"attributes":{"uiTypeLabel":"JSON","child_label":"Material table_child0","child_type_label":"Object","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"json","child_type":"object","child_name":"material_table_child0","child_uiUniqueId":"f019e273-3ca2-4141-8cd5-39966bc020dd","uiUniqueId":"4df8bcc0-30c2-4881-be3e-4fc2cabead39"}},{"name":"{{action.set}}","label":"action➛Set","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"string","uiUniqueId":"00c25f19-22f2-4612-9077-0a0975f704b9"}},{"name":"{{action.erp_source}}","label":"action➛ERP Source","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"string","uiUniqueId":"a4519c18-1727-451d-8636-df800c47cb62"}}]</label_cache>
         <master_snapshot>4a5762328707e5504a48b887cebb35ea</master_snapshot>
         <name>Update or Create Material staging table records</name>
         <natlang/>
@@ -34,7 +34,7 @@
         <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
         <sys_update_name>sys_hub_action_type_definition_ccc6ce328783e5504a48b887cebb3511</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-08 10:10:06</sys_updated_on>
+        <sys_updated_on>2023-06-08 15:52:33</sys_updated_on>
         <system_level>false</system_level>
         <type/>
     </sys_hub_action_type_definition>
@@ -87,10 +87,10 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-05-30 14:05:47</sys_created_on>
         <sys_id>64c6ce328783e5504a48b887cebb357d</sys_id>
-        <sys_mod_count>56</sys_mod_count>
+        <sys_mod_count>57</sys_mod_count>
         <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-08 09:41:06</sys_updated_on>
+        <sys_updated_on>2023-06-08 15:39:58</sys_updated_on>
     </sys_hub_step_instance>
     <sys_variable_value action="delete_multiple" query="document_key=64c6ce328783e5504a48b887cebb357d"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -115,9 +115,9 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-05-30 14:05:48</sys_created_on>
         <sys_id>ecc6ce328783e5504a48b887cebb3594</sys_id>
-        <sys_mod_count>55</sys_mod_count>
+        <sys_mod_count>56</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-08 09:41:06</sys_updated_on>
+        <sys_updated_on>2023-06-08 15:39:58</sys_updated_on>
         <value>(function execute(inputs, outputs) {
     var table = '';
     var inp = {};
@@ -166,12 +166,10 @@
                     var tableKeys = Object.keys(materialTable[j]);
                     tableKeys.forEach(function(table_key) {
                         if (materialMapping.hasMapping(table_key)) {
-                            if (table == 'MAKT' &amp;&amp; table_key == 'MAKTX' &amp;&amp; materialTable[j]['SPRAS'] == 'E') {
-                                gr.setValue(materialMapping.getMappedField(table_key), materialTable[j][table_key]);
-                            } else if (table != 'MAKT') {
-                                gr.setValue(materialMapping.getMappedField(table_key), materialTable[j][table_key]);
-                            }
+                         if ((table == 'MAKT' &amp;&amp; table_key == 'MAKTX' &amp;&amp; materialTable[j]['SPRAS'] == 'E') || table != 'MAKT') {
+                          gr.setValue(materialMapping.getMappedField(table_key), materialTable[j][table_key]);
                         }
+                       }
                     });
                     gr.update();
                 }
@@ -954,7 +952,7 @@
         <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
         <sys_policy/>
         <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
-        <sys_update_name>sys_documentation_var__m_sys_hub_action_input_ccc6ce328783e5504a48b887cebb3511_erp_source_en</sys_update_name>
+        <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-06-08 09:02:42</sys_updated_on>
         <url/>
@@ -977,7 +975,7 @@
         <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
         <sys_policy/>
         <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
-        <sys_update_name>sys_documentation_var__m_sys_hub_action_input_ccc6ce328783e5504a48b887cebb3511_material_table_en</sys_update_name>
+        <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-06-07 13:49:40</sys_updated_on>
         <url/>
@@ -1000,7 +998,7 @@
         <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
         <sys_policy/>
         <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
-        <sys_update_name>sys_documentation_var__m_sys_hub_action_input_ccc6ce328783e5504a48b887cebb3511_set_en</sys_update_name>
+        <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-05-30 14:05:47</sys_updated_on>
         <url/>
@@ -1025,7 +1023,7 @@
         <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
         <sys_policy/>
         <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
-        <sys_update_name>sys_documentation_var__m_sys_hub_action_output_ccc6ce328783e5504a48b887cebb3511___dont_treat_as_error___en</sys_update_name>
+        <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-05-30 14:05:49</sys_updated_on>
         <url/>
@@ -1048,7 +1046,7 @@
         <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
         <sys_policy/>
         <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
-        <sys_update_name>sys_documentation_var__m_sys_hub_action_output_ccc6ce328783e5504a48b887cebb3511___action_status___en</sys_update_name>
+        <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-05-30 14:05:48</sys_updated_on>
         <url/>
@@ -1059,17 +1057,17 @@
     <sys_hub_action_plan action="INSERT_OR_UPDATE">
         <action_id display_value="Update or Create Material staging table records">ccc6ce328783e5504a48b887cebb3511</action_id>
         <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_hub_action_plan","id":"df57a2328707e5504a48b887cebb35bd","name":"plan","plan_signature":null}}</plan>
-        <snapshot>07fc53a5871b2510d1f099783cbb3569</snapshot>
+        <snapshot>80a2b4f9875f2510d1f099783cbb35b2</snapshot>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-05-30 16:28:15</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>df57a2328707e5504a48b887cebb35bd</sys_id>
-        <sys_mod_count>56</sys_mod_count>
+        <sys_mod_count>58</sys_mod_count>
         <sys_overrides/>
         <sys_scope/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-08 09:25:51</sys_updated_on>
+        <sys_updated_on>2023-06-08 15:40:02</sys_updated_on>
     </sys_hub_action_plan>
     <sys_hub_action_type_snapshot action="INSERT_OR_UPDATE">
         <access>public</access>
@@ -1083,7 +1081,7 @@
         <copied_from_name/>
         <description>&lt;p&gt;Action gets the data from SAP and add the data in staging table.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Inputs:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Set - Staging table import set.&lt;/li&gt;&lt;li&gt;Material JSON - SAP response in json format.&lt;/li&gt;&lt;/ul&gt;</description>
         <internal_name>update_or_create_material_staging_table</internal_name>
-        <label_cache>[{"name":"{{action.material_table}}","label":"action➛Material JSON","type":"action","ref":"","reference_display":"","base_type":"json","parent_table_name":"","column_name":"","choices":null,"attributes":{"uiTypeLabel":"JSON","child_label":"Material table_child0","child_type_label":"Object","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"json","child_type":"object","child_name":"material_table_child0","child_uiUniqueId":"f019e273-3ca2-4141-8cd5-39966bc020dd","uiUniqueId":"4df8bcc0-30c2-4881-be3e-4fc2cabead39"}},{"name":"{{action.set}}","label":"action➛Set","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"string","uiUniqueId":"00c25f19-22f2-4612-9077-0a0975f704b9"}},{"name":"{{action.erp_source}}","label":"action➛ERP Source","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}}]</label_cache>
+        <label_cache>[{"name":"{{action.material_table}}","label":"action➛Material JSON","type":"action","ref":"","reference_display":"","base_type":"json","parent_table_name":"","column_name":"","choices":null,"attributes":{"uiTypeLabel":"JSON","child_label":"Material table_child0","child_type_label":"Object","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"json","child_type":"object","child_name":"material_table_child0","child_uiUniqueId":"f019e273-3ca2-4141-8cd5-39966bc020dd","uiUniqueId":"4df8bcc0-30c2-4881-be3e-4fc2cabead39"}},{"name":"{{action.set}}","label":"action➛Set","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"string","uiUniqueId":"00c25f19-22f2-4612-9077-0a0975f704b9"}},{"name":"{{action.erp_source}}","label":"action➛ERP Source","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"string","uiUniqueId":"a4519c18-1727-451d-8636-df800c47cb62"}}]</label_cache>
         <master>true</master>
         <name>Update or Create Material staging table records</name>
         <natlang/>
@@ -1095,7 +1093,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>4a5762328707e5504a48b887cebb35ea</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name/>
         <sys_overrides/>
         <sys_package/>
@@ -1103,7 +1101,7 @@
         <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-08 09:02:44</sys_updated_on>
+        <sys_updated_on>2023-06-08 15:47:26</sys_updated_on>
         <system_level>false</system_level>
         <type/>
     </sys_hub_action_type_snapshot>
@@ -1156,10 +1154,10 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-05-30 16:28:11</sys_created_on>
         <sys_id>1e57a2328707e5504a48b887cebb3528</sys_id>
-        <sys_mod_count>54</sys_mod_count>
+        <sys_mod_count>55</sys_mod_count>
         <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-08 09:41:09</sys_updated_on>
+        <sys_updated_on>2023-06-08 15:40:00</sys_updated_on>
     </sys_hub_step_instance>
     <sys_variable_value action="delete_multiple" query="document_key=1e57a2328707e5504a48b887cebb3528"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -1170,9 +1168,9 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-05-30 16:28:11</sys_created_on>
         <sys_id>9657a2328707e5504a48b887cebb353e</sys_id>
-        <sys_mod_count>53</sys_mod_count>
+        <sys_mod_count>54</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-08 09:41:09</sys_updated_on>
+        <sys_updated_on>2023-06-08 15:40:00</sys_updated_on>
         <value>(function execute(inputs, outputs) {
     var table = '';
     var inp = {};
@@ -1221,12 +1219,10 @@
                     var tableKeys = Object.keys(materialTable[j]);
                     tableKeys.forEach(function(table_key) {
                         if (materialMapping.hasMapping(table_key)) {
-                            if (table == 'MAKT' &amp;&amp; table_key == 'MAKTX' &amp;&amp; materialTable[j]['SPRAS'] == 'E') {
-                                gr.setValue(materialMapping.getMappedField(table_key), materialTable[j][table_key]);
-                            } else if (table != 'MAKT') {
-                                gr.setValue(materialMapping.getMappedField(table_key), materialTable[j][table_key]);
-                            }
+                         if ((table == 'MAKT' &amp;&amp; table_key == 'MAKTX' &amp;&amp; materialTable[j]['SPRAS'] == 'E') || table != 'MAKT') {
+                          gr.setValue(materialMapping.getMappedField(table_key), materialTable[j][table_key]);
                         }
+                       }
                     });
                     gr.update();
                 }
@@ -2023,7 +2019,7 @@
         <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
         <sys_policy/>
         <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
-        <sys_update_name>sys_documentation_var__m_sys_hub_action_input_4a5762328707e5504a48b887cebb35ea_erp_source_en</sys_update_name>
+        <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-06-08 09:02:44</sys_updated_on>
         <url/>
@@ -2046,7 +2042,7 @@
         <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
         <sys_policy/>
         <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
-        <sys_update_name>sys_documentation_var__m_sys_hub_action_input_4a5762328707e5504a48b887cebb35ea_material_table_en</sys_update_name>
+        <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-06-07 13:49:43</sys_updated_on>
         <url/>
@@ -2069,7 +2065,7 @@
         <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
         <sys_policy/>
         <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
-        <sys_update_name>sys_documentation_var__m_sys_hub_action_input_4a5762328707e5504a48b887cebb35ea_set_en</sys_update_name>
+        <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-05-30 16:28:10</sys_updated_on>
         <url/>
@@ -2094,7 +2090,7 @@
         <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
         <sys_policy/>
         <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
-        <sys_update_name>sys_documentation_var__m_sys_hub_action_output_4a5762328707e5504a48b887cebb35ea___dont_treat_as_error___en</sys_update_name>
+        <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-05-30 16:28:12</sys_updated_on>
         <url/>
@@ -2117,7 +2113,7 @@
         <sys_package display_value="Sourcing and Procurement Operations Integration with SAP" source="sn_psm_sap_int">1cc68aba8796d1102a18b846dabb3551</sys_package>
         <sys_policy/>
         <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
-        <sys_update_name>sys_documentation_var__m_sys_hub_action_output_4a5762328707e5504a48b887cebb35ea___action_status___en</sys_update_name>
+        <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-05-30 16:28:12</sys_updated_on>
         <url/>
