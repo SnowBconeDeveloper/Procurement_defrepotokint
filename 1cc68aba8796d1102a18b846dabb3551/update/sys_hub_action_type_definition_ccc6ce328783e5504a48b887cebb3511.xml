@@ -34,7 +34,7 @@
         <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
         <sys_update_name>sys_hub_action_type_definition_ccc6ce328783e5504a48b887cebb3511</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-08 15:52:33</sys_updated_on>
+        <sys_updated_on>2023-06-08 17:39:41</sys_updated_on>
         <system_level>false</system_level>
         <type/>
     </sys_hub_action_type_definition>
@@ -87,10 +87,10 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-05-30 14:05:47</sys_created_on>
         <sys_id>64c6ce328783e5504a48b887cebb357d</sys_id>
-        <sys_mod_count>57</sys_mod_count>
+        <sys_mod_count>58</sys_mod_count>
         <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-08 15:39:58</sys_updated_on>
+        <sys_updated_on>2023-06-08 17:32:21</sys_updated_on>
     </sys_hub_step_instance>
     <sys_variable_value action="delete_multiple" query="document_key=64c6ce328783e5504a48b887cebb357d"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -115,9 +115,9 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-05-30 14:05:48</sys_created_on>
         <sys_id>ecc6ce328783e5504a48b887cebb3594</sys_id>
-        <sys_mod_count>56</sys_mod_count>
+        <sys_mod_count>57</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-08 15:39:58</sys_updated_on>
+        <sys_updated_on>2023-06-08 17:32:21</sys_updated_on>
         <value>(function execute(inputs, outputs) {
     var table = '';
     var inp = {};
@@ -165,11 +165,10 @@
                 for (var j = 0; j &lt; materialTable.length; j++) {
                     var tableKeys = Object.keys(materialTable[j]);
                     tableKeys.forEach(function(table_key) {
-                        if (materialMapping.hasMapping(table_key)) {
-                         if ((table == 'MAKT' &amp;&amp; table_key == 'MAKTX' &amp;&amp; materialTable[j]['SPRAS'] == 'E') || table != 'MAKT') {
-                          gr.setValue(materialMapping.getMappedField(table_key), materialTable[j][table_key]);
+                        if (materialMapping.hasMapping(table_key) &amp;&amp; ((table == 'MAKT' &amp;&amp; table_key == 'MAKTX' &amp;&amp; materialTable[j]['SPRAS'] == 'E') || table != 'MAKT')) {
+                            gr.setValue(materialMapping.getMappedField(table_key), materialTable[j][table_key]);
                         }
-                       }
+
                     });
                     gr.update();
                 }
@@ -1057,17 +1056,17 @@
     <sys_hub_action_plan action="INSERT_OR_UPDATE">
         <action_id display_value="Update or Create Material staging table records">ccc6ce328783e5504a48b887cebb3511</action_id>
         <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_hub_action_plan","id":"df57a2328707e5504a48b887cebb35bd","name":"plan","plan_signature":null}}</plan>
-        <snapshot>80a2b4f9875f2510d1f099783cbb35b2</snapshot>
+        <snapshot>e25c893587df2510d1f099783cbb3551</snapshot>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-05-30 16:28:15</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>df57a2328707e5504a48b887cebb35bd</sys_id>
-        <sys_mod_count>58</sys_mod_count>
+        <sys_mod_count>60</sys_mod_count>
         <sys_overrides/>
         <sys_scope/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-08 15:40:02</sys_updated_on>
+        <sys_updated_on>2023-06-08 17:32:26</sys_updated_on>
     </sys_hub_action_plan>
     <sys_hub_action_type_snapshot action="INSERT_OR_UPDATE">
         <access>public</access>
@@ -1154,10 +1153,10 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-05-30 16:28:11</sys_created_on>
         <sys_id>1e57a2328707e5504a48b887cebb3528</sys_id>
-        <sys_mod_count>55</sys_mod_count>
+        <sys_mod_count>56</sys_mod_count>
         <sys_scope display_value="Sourcing and Procurement Operations Integration with SAP">1cc68aba8796d1102a18b846dabb3551</sys_scope>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-08 15:40:00</sys_updated_on>
+        <sys_updated_on>2023-06-08 17:32:24</sys_updated_on>
     </sys_hub_step_instance>
     <sys_variable_value action="delete_multiple" query="document_key=1e57a2328707e5504a48b887cebb3528"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -1168,9 +1167,9 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-05-30 16:28:11</sys_created_on>
         <sys_id>9657a2328707e5504a48b887cebb353e</sys_id>
-        <sys_mod_count>54</sys_mod_count>
+        <sys_mod_count>55</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-08 15:40:00</sys_updated_on>
+        <sys_updated_on>2023-06-08 17:32:24</sys_updated_on>
         <value>(function execute(inputs, outputs) {
     var table = '';
     var inp = {};
@@ -1218,11 +1217,10 @@
                 for (var j = 0; j &lt; materialTable.length; j++) {
                     var tableKeys = Object.keys(materialTable[j]);
                     tableKeys.forEach(function(table_key) {
-                        if (materialMapping.hasMapping(table_key)) {
-                         if ((table == 'MAKT' &amp;&amp; table_key == 'MAKTX' &amp;&amp; materialTable[j]['SPRAS'] == 'E') || table != 'MAKT') {
-                          gr.setValue(materialMapping.getMappedField(table_key), materialTable[j][table_key]);
+                        if (materialMapping.hasMapping(table_key) &amp;&amp; ((table == 'MAKT' &amp;&amp; table_key == 'MAKTX' &amp;&amp; materialTable[j]['SPRAS'] == 'E') || table != 'MAKT')) {
+                            gr.setValue(materialMapping.getMappedField(table_key), materialTable[j][table_key]);
                         }
-                       }
+
                     });
                     gr.update();
                 }
